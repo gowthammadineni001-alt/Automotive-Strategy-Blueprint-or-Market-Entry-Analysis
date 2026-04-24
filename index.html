@@ -214,11 +214,21 @@ strong { color: var(--text); font-weight: 600; }
 <body>
 
 <!-- ═══════════════════════════════════════ SLIDE 01 · COVER -->
- <div style="position: absolute; top: 15px; left: 68px; z-index: 100; display: flex; gap: 20px;">
-  <a href="index.html" style="color: var(--red); font-family: 'Space Mono', monospace; font-size: 10px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--red);">Blueprint</a>
-  <a href="citroen-analysis.html" style="color: var(--text-dim); font-family: 'Space Mono', monospace; font-size: 10px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;">Citroën Analysis</a>
-  <a href="jeep-analysis.html" style="color: var(--text-dim); font-family: 'Space Mono', monospace; font-size: 10px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;">Jeep Analysis</a>
- </div>
+<div style="position: absolute; top: 20px; left: 68px; z-index: 1000; display: flex; gap: 15px; align-items: center;">
+  <a href="index.html" style="background: var(--red); color: #fff; padding: 8px 16px; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(230,57,70,0.3);">Blueprint</a>
+  
+  <a href="citroen-analysis.html" class="nav-btn" style="background: var(--surface2); color: var(--text-mid); padding: 8px 16px; border: 1px solid var(--border); border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.15em; transition: 0.3s;">Citroën Analysis</a>
+  
+  <a href="jeep-analysis.html" class="nav-btn" style="background: var(--surface2); color: var(--text-mid); padding: 8px 16px; border: 1px solid var(--border); border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.15em; transition: 0.3s;">Jeep Analysis</a>
+</div>
+
+<style>
+  .nav-btn:hover {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+    border-color: var(--text-dim) !important;
+  }
+</style>
  <div class="slide slide-cover" data-slide="01 / 18">
   <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 30%, rgba(230,57,70,0.12) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(99,102,241,0.08) 0%, transparent 50%);pointer-events:none;"></div>
   <div style="position:absolute;top:50px;left:68px;right:68px;display:flex;justify-content:space-between;align-items:center;">
