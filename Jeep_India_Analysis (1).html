@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeep India — Gowtham M</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f5f0e8;
+    --accent: #c0392b;
+    --mid: #6b6b6b;
+    --rule: #d4c9b0;
+    --light-bg: #ede8df;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.85;
+    padding: 48px 24px 80px;
+  }
+
+  .page { max-width: 740px; margin: 0 auto; }
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0 12px;
+    margin-bottom: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .masthead-author { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+  .masthead-tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .deck {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+  }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    float: left;
+    line-height: 0.78;
+    margin: 10px 10px 0 0;
+    color: var(--ink);
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    margin-bottom: 1.45em;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 44px 0 14px;
+    padding-left: 14px;
+    position: relative;
+  }
+  h2::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 4px; bottom: 4px;
+    width: 3px;
+    background: var(--accent);
+  }
+
+  .pull-quote {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    margin: 40px 0;
+    padding: 24px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 !important;
+  }
+
+  .callout {
+    background: var(--light-bg);
+    border-left: 4px solid var(--accent);
+    padding: 18px 20px;
+    margin: 32px 0;
+    font-size: 0.97rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .callout strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+
+  .data-row {
+    display: flex;
+    gap: 16px;
+    margin: 36px 0;
+    flex-wrap: wrap;
+  }
+  .data-box {
+    flex: 1;
+    min-width: 140px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 20px 18px;
+  }
+  .data-box .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .data-box .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    line-height: 1.4;
+  }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 0.92rem;
+  }
+  .compare-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .compare-table th:first-child { background: var(--accent); }
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .compare-table tr:nth-child(even) td { background: var(--light-bg); }
+  .compare-table td:first-child {
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--mid);
+    text-transform: uppercase;
+  }
+  .worse { color: var(--accent); font-weight: 600; }
+  .better { color: #2d6a2d; font-weight: 600; }
+
+  hr.rule { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+  .sign-off {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9rem;
+    color: var(--mid);
+  }
+  .sign-off strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .series-note {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 20px;
+    margin-bottom: 32px;
+    font-size: 0.83rem;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+  .series-note span { color: var(--accent); font-weight: 600; }
+
+  .copy-wrap { margin-top: 40px; text-align: center; }
+  .copy-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 13px 36px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--accent); }
+  #article-text { position: absolute; left: -9999px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <span class="masthead-author">Gowtham M &nbsp;·&nbsp; MBA in AI & Data Science, RV University</span>
+    <span class="masthead-tag">Strategy &nbsp;·&nbsp; Automotive &nbsp;·&nbsp; India</span>
+  </div>
+
+  <div class="series-note">
+    Part II of the Stellantis India Series &nbsp;·&nbsp;
+    <span>Part I covered Citroën's frugality trap and the case for consolidation.</span>
+    &nbsp;This piece turns to Jeep — a brand with a far stronger global identity, and an even more confounding Indian story.
+  </div>
+
+  <h1>Jeep India:<br><em>A Legend Lost in Its Own Showroom</em></h1>
+
+  <p class="deck">Jeep is one of the most recognisable automotive brands on earth. Eighty years of heritage. A badge that carries genuine emotion across every continent. In India, it sells fewer cars in a month than most Mahindra dealers move in a week. This is not a heritage problem. It is a positioning problem — and it runs deeper than anyone at Stellantis seems willing to admit.</p>
+
+  <div class="data-row">
+    <div class="data-box"><span class="num">81</span><span class="label">Meridian units sold, Feb 2026</span></div>
+    <div class="data-box"><span class="num">−40.9%</span><span class="label">Meridian YoY decline</span></div>
+    <div class="data-box"><span class="num">₹22L–₹95L+</span><span class="label">Jeep's price range in one showroom</span></div>
+    <div class="data-box"><span class="num">5,000+</span><span class="label">XUV700 units sold monthly</span></div>
+  </div>
+
+  <div class="article-body">
+
+    <p>There is a question that should keep Jeep India's leadership awake at night, and it is not about product quality or dealer margins. It is a simpler, more uncomfortable question: who exactly is Jeep competing with in this country? The honest answer, in 2026, is that nobody inside Stellantis seems to know — and the market has noticed.</p>
+
+    <p>Walk into a Jeep showroom today and you will find a Compass starting at roughly ₹22 lakhs sitting a few metres away from a Grand Cherokee pushing ₹90 lakhs. The Meridian — a three-row monocoque family hauler — shares floor space with the Wrangler, an icon of genuine off-road engineering. One is a competitor to the Hyundai Tucson. The other competes, aspirationally at least, with the Land Rover Defender. They share a badge, a showroom, and almost nothing else. The result is that neither car is positioned clearly in the buyer's mind — and in a market as psychologically complex as India, a confused buyer is a buyer who walks out empty-handed.</p>
+
+    <h2>Blunder #1 — Jeep Doesn't Know Who It's Fighting</h2>
+
+    <p>Maruti Suzuki understood something decades ago that Jeep still hasn't grasped: you cannot serve two audiences from the same room. When Maruti needed to move upmarket, they did not raise prices inside existing Arena showrooms. They built NEXA — a separate identity, separate dealerships, separate service experience — for buyers who wanted to spend more and feel different about it. The Baleno buyer and the Alto buyer are both Maruti customers, but they never have to confront that fact in the same showroom.</p>
+
+    <p>Jeep's problem is that they are asking the person who just spent ₹90 lakhs on a Grand Cherokee to stand next to the person pricing out a base Compass. The luxury buyer feels the brand is too accessible. The entry-level buyer feels the brand is too expensive. Both leave with an unresolved feeling. This isn't a trivial showroom management issue — it is a fundamental brand dilution, playing out every day in every Jeep outlet across the country.</p>
+
+    <div class="pull-quote">
+      <p>"You cannot charge luxury prices and mass-market prices under the same roof. Maruti understood this. Jeep, with far more at stake in the premium segment, still hasn't."</p>
+    </div>
+
+    <p>Compare this to how Hyundai manages the same tension. The Hyundai Creta and the Hyundai Tucson are both SUVs from the same company, but the Creta buyer and the Tucson buyer occupy entirely different mental universes. Hyundai keeps them that way through distinct marketing, distinct feature positioning, and an understanding that perception is more powerful than proximity. Jeep has no such discipline. They have priced themselves into a no-man's land where they are simultaneously too expensive to be a volume brand and too common to command genuine luxury loyalty.</p>
+
+    <h2>Blunder #2 — The 4×4 Myth in a 4×2 Nation</h2>
+
+    <p>Ask a Jeep executive what makes the brand special, and they will tell you about the Rubicon Trail. About axle articulation. About water wading depth and approach angles. About the Wrangler's decades of global heritage conquering terrain that no other production vehicle could touch. All of this is true, and almost none of it matters in the Indian market.</p>
+
+    <p>India does not have a serious off-road culture. What India has is a serious road-presence culture. Buyers in the ₹10 lakh to ₹25 lakh SUV bracket — which is where the majority of Jeep's potential volume lives — are not buying SUVs to go off-road. They are buying them for the high seating position, the commanding view over traffic, the wide stance, and the social signal that comes with a large, imposing vehicle. They want to look like they could go off-road. They have no intention of actually doing it.</p>
+
+    <p>Mahindra figured this out, and their sales data makes the case more powerfully than any strategy document. When Mahindra launched the Thar RWD — a rear-wheel-drive, non-4×4 version of their iconic off-roader — it became the variant that actually sold. The data is unambiguous: over 80% of Thar and Scorpio-N buyers choose the 4×2 variants. They want the design. They want the stance. They want the seven-slot grille and the boxy silhouette. They do not want the transfer case, the low-range gearing, or the complexity that comes with genuine four-wheel-drive hardware.</p>
+
+    <div class="callout">
+      <strong>The Thar Effect on Wrangler</strong>
+      The Mahindra Thar's design is not a coincidence. The round headlamps, the seven-slot grille interpretation, the boxy upright stance — Mahindra built an entire aspirational identity around the silhouette that Jeep's Wrangler made famous globally, then brought it to Indian buyers at a fraction of the price. The Wrangler starts at around ₹67 lakhs in India. The Thar, which scratches the same visual itch for a very different buyer, starts well under ₹15 lakhs. Jeep effectively handed Mahindra the design brief for one of India's bestselling SUVs — and then watched from the sidelines as that design captured a market Jeep could never afford to address.
+    </div>
+
+    <p>This is Jeep's fundamental strategic trap in India. Their entire brand identity is built around a capability — four-wheel-drive, trail-rated, go-anywhere engineering — that the vast majority of Indian buyers will pay to look like they have, but will not pay a premium to actually possess. Mahindra democratised the Jeep aesthetic while Jeep was busy protecting its off-road credentials. The market voted with its wallet, and the verdict was not close.</p>
+
+    <h2>Blunder #3 — The Meridian's Monocoque Contradiction</h2>
+
+    <p>The Jeep Meridian is, by any objective measure, a competent car. It handles well on Indian highways, the ride quality is composed, and the 2.0-litre diesel engine is refined. But the Meridian has an identity problem that no amount of competence can solve: it is a monocoque SUV being sold as a premium off-road-capable machine, at a price that makes the contradiction impossible to ignore.</p>
+
+    <p>A monocoque, or unibody, chassis is the architecture of choice for cars designed primarily for on-road use — Hyundai Cretas, Kia Seltoses, Tata Nexons. The structure prioritises passenger safety, on-road dynamics, and manufacturing efficiency. It is not the architecture of a Wrangler or a Fortuner or a Scorpio-N, which use ladder-frame or body-on-frame construction for genuine off-road durability. When Jeep builds the Meridian on a monocoque platform — the correct engineering choice for a three-row family SUV — and then markets it using Jeep's off-road heritage, they are selling a story that the car's own bones contradict.</p>
+
+    <p>The Mahindra XUV700 is also built on a monocoque platform. Mahindra does not pretend otherwise. They sell the XUV700 for exactly what it is: an exceptionally powerful, feature-rich, genuinely spacious family SUV that dominates on Indian roads. They let the product speak the truth about what it is designed to do. Jeep, by contrast, asks the Meridian to carry the weight of the Wrangler's legend — and the Meridian, however good a car it is, was never built for that job.</p>
+
+    <div class="pull-quote">
+      <p>"The Meridian is a road car wearing an off-road badge — priced as if the badge changes what the car actually is."</p>
+    </div>
+
+    <h2>Blunder #4 — The Compass Couldn't Survive the Value War</h2>
+
+    <p>The Jeep Compass was, at its 2017 launch, a genuine segment disruptor. It brought a recognisable international brand into Indian territory that had previously been dominated by Hyundai, Renault, and the emerging force of Tata Motors. At a starting price around ₹15 lakhs, it offered something the segment hadn't seen: a globally respected nameplate at a locally digestible price. Showrooms were busy. The waiting lists were real. For a brief window, Jeep looked like it understood India.</p>
+
+    <p>Then Mahindra launched the XUV700 in 2021 — and the Compass's position collapsed, not gradually but decisively. The XUV700 arrived with a 197 bhp diesel engine against the Compass's 168 bhp. It offered a three-screen dashboard, level-two ADAS driver assistance, ventilated seats, panoramic sunroof, and 360-degree cameras — features that had no business being in a car at that price. And it was priced starting at ₹13.5 lakhs. The Compass, meanwhile, had drifted upward through successive price revisions to a point where its value proposition simply evaporated.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Specification</th>
+          <th>Jeep Meridian (Overland 4×4)</th>
+          <th>Mahindra XUV700 (AX7L AWD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price (Top Variant)</td>
+          <td class="worse">₹37–38 Lakhs</td>
+          <td class="better">₹25–26 Lakhs</td>
+        </tr>
+        <tr>
+          <td>Engine Power</td>
+          <td class="worse">168 bhp / 350 Nm</td>
+          <td class="better">197 bhp / 380 Nm</td>
+        </tr>
+        <tr>
+          <td>Chassis</td>
+          <td>Monocoque</td>
+          <td>Monocoque</td>
+        </tr>
+        <tr>
+          <td>Infotainment</td>
+          <td class="worse">10.1" single screen</td>
+          <td class="better">Triple 10.25" screens</td>
+        </tr>
+        <tr>
+          <td>ADAS</td>
+          <td class="worse">Absent</td>
+          <td class="better">Level 2 (ADAS)</td>
+        </tr>
+        <tr>
+          <td>Airbags (Standard)</td>
+          <td>6</td>
+          <td class="better">7 + curtain airbags</td>
+        </tr>
+        <tr>
+          <td>Seating</td>
+          <td>6 / 7</td>
+          <td class="better">6 / 7</td>
+        </tr>
+        <tr>
+          <td>Monthly Volume (Feb 2026)</td>
+          <td class="worse">~81 units</td>
+          <td class="better">5,000+ units</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The Scorpio-N compounded this problem from the opposite end. Here was a car that offered a large, genuinely imposing presence — the kind of road authority that Jeep's Indian buyers actually crave — with a diesel engine, a proper seven-seat layout, and a starting price that undercut the Compass significantly. It wasn't as refined. It wasn't as dynamically polished. It didn't need to be. Indian buyers in that bracket were not shopping for refinement. They were shopping for size, presence, and the feeling that they had bought something significant.</p>
+
+    <p>The Compass's 2.0-litre diesel, which had been a legitimate selling point in 2017, stopped being compelling the moment Mahindra proved that for less money, you could have more power, more features, and more of the road-dominant presence that Indian buyers actually come to this segment to purchase.</p>
+
+    <div class="callout">
+      <strong>The Price Escalation Problem</strong>
+      The Compass launched in India at around ₹14.95 lakhs in 2017 — a price that genuinely justified the Jeep badge. Over successive model years and trim rationalisation, it drifted steadily upward. By 2025–26, a well-specified Compass was pushing ₹30 lakhs, while the XUV700 — newer, more powerful, more feature-rich — was available for significantly less. Jeep raised prices as if the badge alone could maintain the value equation. The Indian buyer, who is among the most detail-oriented value assessors in the world, ran the numbers and found the equation had broken down.
+    </div>
+
+    <h2>Blunder #5 — Selling ₹1 Crore Cars in a ₹20 Lakh Market</h2>
+
+    <p>There is a scene that plays out in Jeep showrooms across India's major cities that captures the brand's positioning problem more vividly than any sales chart. A family walks in to enquire about a Compass or a Meridian. In the same room, under the same lighting, wearing the same seven-slot grille, sits a Grand Cherokee or a Wrangler — cars that cost four to five times as much. The family, already stretching their budget, is suddenly uncertain. Is this a brand for people like them? Or is this a brand that they are trying to reach upward toward? The ambiguity is the problem.</p>
+
+    <p>Maruti solved this with architecture. The NEXA showrooms that stock the Grand Vitara, the Invicto, and the Jimny are physically and experientially different from the Arena showrooms that sell the Swift and the Wagon R. The buyer who walks into NEXA knows they are in a premium environment. The buyer who walks into Arena knows they are in a value environment. Neither buyer has to confront the cognitive dissonance of seeing both worlds in the same room.</p>
+
+    <p>Hyundai maintains the same discipline with different logic — their lineup is carefully tiered so that each model's pricing and positioning tells a coherent story. You don't walk into a Hyundai showroom and find the Creta parked next to a car that costs five times as much. The range is broad, but within each showroom, the buyer's reference points are contained.</p>
+
+    <p>Jeep has no such discipline in India. The Grand Cherokee and the Wrangler — which exist at genuinely premium price points and should command a premium showroom experience to match — dilute the Compass and Meridian buyer's sense of what the brand stands for. And simultaneously, the Compass and Meridian's volume positioning dilutes the exclusivity that the Grand Cherokee and Wrangler buyer is paying for. Both ends of the range lose something from sharing a room.</p>
+
+    <div class="callout">
+      <strong>The Scorpio-N Lesson in Brand Architecture</strong>
+      Mahindra does something quietly brilliant with their own lineup. The Scorpio-N and the XUV700 are sold from the same showrooms, but they serve entirely different buyers with different priorities — and Mahindra makes no attempt to make them feel like the same car. The Scorpio-N buyer wants size, presence, and the feeling of dominating the road. The XUV700 buyer wants sophistication, technology, and the feeling of having bought something genuinely advanced. Both buyers walk away satisfied because the brand never confused them about which car was which. Jeep's showroom sells confusion where Mahindra sells clarity.
+    </div>
+
+    <h2>What Should Jeep Actually Do</h2>
+
+    <p>The path forward for Jeep in India requires accepting a truth that the global brand has historically resisted: the Indian market will reward you for the right version of your identity, not the complete version. You cannot be everything to every buyer simultaneously. Pick a lane, and own it completely.</p>
+
+    <p>The first decision should be architectural. The premium products — the Grand Cherokee, the Wrangler — deserve a premium-only experience. Whether that means separate showrooms, a "Jeep Adventure Studio" concept, or a distinct certified-dealer network, the principle is the same: stop diluting your most aspirational products by displaying them next to your most affordable ones. The buyer who is spending ₹80 lakhs deserves to feel like they are buying something rare. They currently don't.</p>
+
+    <p>The second decision should be about honesty. The Meridian is a monocoque family SUV and an excellent one. Stop asking it to carry the off-road brand heritage. Market it for what it actually delivers: European-engineered ride quality, Jeep's international pedigree, and a genuinely premium cabin in a three-row format. That is a compelling proposition at the right price. At ₹38 lakhs against a ₹25 lakh XUV700, it isn't — because the premium is unjustifiable without a narrative the car can honestly support.</p>
+
+    <p>The third, and most important, decision is about volume. If Jeep wants to build meaningful scale in India, the Jeep Avenger — Stellantis's sub-four-metre global product, already available in Europe on the same localised platform as the C3 — is the product that makes the case. Price it under ₹15 lakhs, give it a proper interior without the cost-cutting that damaged Citroën's Indian reputation, and stop calling it a 4×4 product. It is an urban SUV with Jeep's silhouette and Jeep's badge. In India, that is more than enough. That is, in fact, exactly what a significant segment of buyers is waiting for.</p>
+
+    <p>The Tata Nexon saved Tata Motors in India. Not through engineering brilliance alone — though the Nexon is a good car — but through the clarity of its positioning. Here is what it costs. Here is what it gives you. Here is why it is worth it. No confusion, no contradiction, no ₹1 crore car in the corner reminding you what the brand really thinks of itself. Jeep needs its Nexon moment. The Avenger, done right, could be exactly that.</p>
+
+    <hr class="rule">
+
+    <p>The tragedy of Jeep India is different from Citroën's tragedy. Citroën arrived with the wrong product. Jeep arrived with the right brand — one of the most emotionally powerful names in global automotive history — and then systematically confused every buyer who walked through the door about what that brand actually means at the price they could afford.</p>
+
+    <p>In India, a brand that stands for everything ends up standing for nothing. Jeep's seven-slot grille is one of the most recognisable design signatures in the world. But recognition without clarity of purpose is just decoration. Until Jeep decides whether it is a luxury brand or a volume brand — and builds its Indian showroom, its pricing, and its marketing around a single honest answer — that grille is going to keep drawing people in without giving them a reason to stay.</p>
+
+  </div>
+
+  <div class="sign-off">
+    <strong>Gowtham M</strong>
+    MBA in AI & Data Science · RV University<br>
+    Opinions are my own, based on market observation and analysis.
+  </div>
+
+  <div class="copy-wrap">
+    <button class="copy-btn" onclick="copyArticle()">Copy Article Text</button>
+  </div>
+
+</div>
+
+<textarea id="article-text">
+Jeep India: A Legend Lost in Its Own Showroom
+
+Jeep is one of the most recognisable automotive brands on earth. Eighty years of heritage. A badge that carries genuine emotion across every continent. In India, it sells fewer cars in a month than most Mahindra dealers move in a week. This is not a heritage problem. It is a positioning problem — and it runs deeper than anyone at Stellantis seems willing to admit.
+
+There is a question that should keep Jeep India's leadership awake at night, and it is not about product quality or dealer margins. It is a simpler, more uncomfortable question: who exactly is Jeep competing with in this country? The honest answer, in 2026, is that nobody inside Stellantis seems to know — and the market has noticed.
+
+Walk into a Jeep showroom today and you will find a Compass starting at roughly ₹22 lakhs sitting a few metres away from a Grand Cherokee pushing ₹90 lakhs. The Meridian — a three-row monocoque family hauler — shares floor space with the Wrangler, an icon of genuine off-road engineering. One is a competitor to the Hyundai Tucson. The other competes, aspirationally at least, with the Land Rover Defender. They share a badge, a showroom, and almost nothing else.
+
+Blunder #1 — Jeep Doesn't Know Who It's Fighting
+
+Maruti Suzuki understood something decades ago that Jeep still hasn't grasped: you cannot serve two audiences from the same room. When Maruti needed to move upmarket, they did not raise prices inside existing Arena showrooms. They built NEXA — a separate identity, separate dealerships, separate service experience — for buyers who wanted to spend more and feel different about it.
+
+Jeep's problem is that they are asking the person who just spent ₹90 lakhs on a Grand Cherokee to stand next to the person pricing out a base Compass. The luxury buyer feels the brand is too accessible. The entry-level buyer feels the brand is too expensive. Both leave with an unresolved feeling. This isn't a trivial showroom management issue — it is a fundamental brand dilution, playing out every day in every Jeep outlet across the country.
+
+Blunder #2 — The 4×4 Myth in a 4×2 Nation
+
+India does not have a serious off-road culture. What India has is a serious road-presence culture. Buyers in the ₹10 lakh to ₹25 lakh SUV bracket are not buying SUVs to go off-road. They are buying them for the high seating position, the commanding view over traffic, and the social signal that comes with a large, imposing vehicle. They want to look like they could go off-road. They have no intention of actually doing it.
+
+Mahindra figured this out. When Mahindra launched the Thar RWD — a rear-wheel-drive, non-4×4 version of their iconic off-roader — it became the variant that actually sold. Over 80% of Thar and Scorpio-N buyers choose the 4×2 variants. They want the design. They want the stance. They do not want the transfer case.
+
+The Thar Effect on Wrangler: The Mahindra Thar's design is not a coincidence. The round headlamps, the seven-slot grille interpretation, the boxy upright stance — Mahindra built an entire aspirational identity around the silhouette that Jeep's Wrangler made famous globally, then brought it to Indian buyers at a fraction of the price. The Wrangler starts at around ₹67 lakhs in India. The Thar starts well under ₹15 lakhs. Jeep effectively handed Mahindra the design brief for one of India's bestselling SUVs.
+
+Blunder #3 — The Meridian's Monocoque Contradiction
+
+The Jeep Meridian is a monocoque SUV being sold as a premium off-road-capable machine, at a price that makes the contradiction impossible to ignore. A monocoque chassis prioritises passenger safety and on-road dynamics — not off-road durability. When Jeep builds the Meridian on a monocoque platform and then markets it using Jeep's off-road heritage, they are selling a story that the car's own bones contradict.
+
+The Mahindra XUV700 is also monocoque. Mahindra does not pretend otherwise. They sell it for exactly what it is: an exceptionally powerful, feature-rich family SUV. Jeep asks the Meridian to carry the weight of the Wrangler's legend — and the Meridian was never built for that job.
+
+Blunder #4 — The Compass Couldn't Survive the Value War
+
+The Jeep Compass was, at its 2017 launch, a genuine segment disruptor. Then Mahindra launched the XUV700 in 2021 — and the Compass's position collapsed decisively. The XUV700 arrived with a 197 bhp diesel engine against the Compass's 168 bhp. It offered a three-screen dashboard, level-two ADAS, ventilated seats, and 360-degree cameras — and it was priced starting at ₹13.5 lakhs.
+
+By 2025–26, a well-specified Compass was pushing ₹30 lakhs, while the XUV700 — newer, more powerful, more feature-rich — was available for significantly less. Jeep raised prices as if the badge alone could maintain the value equation. The Indian buyer ran the numbers and found the equation had broken down. The Meridian's situation is even starker: ₹37–38 lakhs for 168 bhp versus the XUV700's 197 bhp at ₹25 lakhs.
+
+Blunder #5 — Selling ₹1 Crore Cars in a ₹20 Lakh Market
+
+A family walks into a Jeep showroom to enquire about a Compass. In the same room sits a Grand Cherokee — a car that costs four to five times as much. The ambiguity is the problem. Is this a brand for people like them? Maruti solved this with NEXA. Jeep has no such discipline. The Grand Cherokee and the Wrangler dilute the Compass buyer's sense of what the brand stands for. And the Compass dilutes the exclusivity that the Grand Cherokee buyer is paying for.
+
+What Should Jeep Actually Do
+
+The first decision should be architectural. The premium products deserve a premium-only experience. Stop diluting your most aspirational products by displaying them next to your most affordable ones.
+
+The second decision should be about honesty. The Meridian is a monocoque family SUV and an excellent one. Stop asking it to carry the off-road brand heritage. Market it for what it delivers: European-engineered ride quality, Jeep's pedigree, and a genuinely premium cabin. That is compelling at the right price. At ₹38 lakhs against a ₹25 lakh XUV700, it isn't.
+
+The third decision is about volume. The Jeep Avenger — a sub-four-metre product, already available on the localised Citroën platform — priced under ₹15 lakhs with a proper interior, is the product that could change this story. Price it right. Give it the interior it deserves. Market it as an urban SUV with a global badge. Stop calling it a 4×4. In India, the Jeep silhouette alone is more than enough.
+
+The Tata Nexon saved Tata Motors in India — not through engineering brilliance alone, but through the clarity of its positioning. Jeep needs its Nexon moment. The Avenger, done right, could be exactly that.
+
+---
+
+The tragedy of Jeep India is different from Citroën's tragedy. Citroën arrived with the wrong product. Jeep arrived with the right brand — one of the most emotionally powerful names in global automotive history — and then systematically confused every buyer about what that brand actually means at the price they could afford.
+
+In India, a brand that stands for everything ends up standing for nothing. Jeep's seven-slot grille is one of the most recognisable design signatures in the world. Until Jeep decides whether it is a luxury brand or a volume brand — and builds its Indian showroom, its pricing, and its marketing around a single honest answer — that grille is going to keep drawing people in without giving them a reason to stay.
+
+— Gowtham M
+MBA in AI & Data Science · RV University
+</textarea>
+
+<script>
+function copyArticle() {
+  const text = document.getElementById('article-text').value.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy Article Text', 2000);
+  });
+}
+</script>
+</body>
+</html>

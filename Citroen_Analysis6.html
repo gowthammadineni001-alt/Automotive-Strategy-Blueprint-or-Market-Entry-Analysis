@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stellantis India — Gowtham M</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f5f0e8;
+    --accent: #c0392b;
+    --mid: #6b6b6b;
+    --rule: #d4c9b0;
+    --light-bg: #ede8df;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.85;
+    padding: 48px 24px 80px;
+  }
+
+  .page { max-width: 740px; margin: 0 auto; }
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0 12px;
+    margin-bottom: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .masthead-author { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+  .masthead-tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .deck {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+  }
+
+  .article-body > p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    float: left;
+    line-height: 0.78;
+    margin: 10px 10px 0 0;
+    color: var(--ink);
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    margin-bottom: 1.45em;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 44px 0 14px;
+    padding-left: 14px;
+    position: relative;
+  }
+  h2::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 4px; bottom: 4px;
+    width: 3px;
+    background: var(--accent);
+  }
+
+  .pull-quote {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    margin: 40px 0;
+    padding: 24px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 !important;
+  }
+
+  .callout {
+    background: var(--light-bg);
+    border-left: 4px solid var(--accent);
+    padding: 18px 20px;
+    margin: 32px 0;
+    font-size: 0.97rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .callout strong { font-weight: 600; display: block; margin-bottom: 6px; font-size: 1rem; }
+
+  .data-row {
+    display: flex;
+    gap: 16px;
+    margin: 36px 0;
+    flex-wrap: wrap;
+  }
+  .data-box {
+    flex: 1;
+    min-width: 140px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 20px 18px;
+  }
+  .data-box .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .data-box .label { font-size: 0.75rem; letter-spacing: 0.07em; text-transform: uppercase; opacity: 0.8; line-height: 1.4; }
+
+  hr.rule { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+  .sign-off {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9rem;
+    color: var(--mid);
+  }
+  .sign-off strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 2px; }
+
+  .copy-wrap { margin-top: 40px; text-align: center; }
+  .copy-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 13px 36px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--accent); }
+  #article-text { display: none; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <span class="masthead-author">Gowtham M &nbsp;·&nbsp; MBA in AI & Data Science, RV University</span>
+    <span class="masthead-tag">Strategy &nbsp;·&nbsp; Automotive &nbsp;·&nbsp; India</span>
+  </div>
+
+  <h1>Stellantis in India:<br><em>Why Global Muscle Is Failing the Local Test</em></h1>
+
+  <p class="deck">Stellantis is one of the world's top five automakers. Yet in India, they sell fewer cars in a month than Maruti sells in a single afternoon. This isn't a product problem. It's a strategic one — and it starts with a decision made before a single car hit the road.</p>
+
+  <div class="data-row">
+    <div class="data-box"><span class="num">Top 5</span><span class="label">Global automaker rank by volume</span></div>
+    <div class="data-box"><span class="num">6,713</span><span class="label">Total Citroën units sold in India, full year 2025</span></div>
+    <div class="data-box"><span class="num">₹2,000 cr</span><span class="label">Stellantis India investment commitment</span></div>
+    <div class="data-box"><span class="num">18.8%</span><span class="label">Export growth in 2025 — the real story</span></div>
+  </div>
+
+  <div class="article-body">
+
+    <p>In 2026, the Indian car market is a graveyard of misread ambitions. From the Tata Nano to the quiet exit of Datsun, the Indian consumer has delivered the same verdict repeatedly: don't sell us a cheap car. Sell us an aspirational one at a fair price. Stellantis, it seems, never got the memo.</p>
+
+    <p>Despite sitting on a portfolio of sharp, distinctive brands — Opel, Peugeot, DS — they chose to lead India with a version of Citroën that was deliberately stripped down for cost. The result is a brand that feels like it arrived apologising for itself: 6,713 units sold across the entire calendar year 2025, while Maruti moves that many cars in roughly a day and a half.</p>
+
+    <h2>Blunder #1 — They Brought the Wrong Design to the Wrong Market</h2>
+
+    <p>Let's start with what Citroën actually looks like globally, because the gap between that and what India received is the heart of this story.</p>
+
+    <p>Globally, Citroën is in the middle of one of the most genuinely interesting design eras of any mainstream brand. Their Oli concept in 2022 was so forward-thinking that BMW and Skoda have since replicated its core dashboard philosophy — the C-Zen Lounge, a completely screenless instrument cluster that projects information via a head-up display onto a smoked blade across the windscreen. No traditional dashboard. No instrument cluster. Just emptiness, and pure driving focus. The European C3 and C3 Aircross carry this exact design forward — C-shaped LED headlights, a futuristic flat-bottom steering wheel, layered dashboard architecture, silver and piano black accents, and a lighting signature that looks genuinely cybernetic. Citroën globally is bold, geometric, polarising in the best possible way.</p>
+
+    <p>Now here's what India actually got. The Indian C3 launched in 2022 with an older interior layout, manual mirror adjusters, no tachometer, no automatic climate control, and no sunroof. The Indian C3 Aircross, launched in 2023, had a completely different front fascia from its European sibling — less premium lighting, older alloy wheel designs, a basic cabin without the sleek two-spoke steering wheel or the silver accents that made the European version look like it belonged in 2024. Even the logo on the Indian car was the old Citroën chevron, while Europe was already wearing the new identity.</p>
+
+    <div class="callout">
+      <strong>The "C-Cubed" Problem</strong>
+      Stellantis developed a specific platform — the Common Modular Platform — for India and Brazil, explicitly designed to cut costs for emerging markets. Citroën's own global CEO admitted at launch: "C3 is our trade name for mid-segment hatchbacks worldwide, which does not mean it is the same model everywhere. This new C3 differs from the European version." They built an India-specific product from scratch, localised the bones — but forgot to localise the aspiration.
+    </div>
+
+    <p>This is the core design betrayal. Globally, Citroën is proving that a "budget" car doesn't have to look like one. The European C3 was described as a car that "cleverly conceals its corner-cutting" — the kind of car that feels like more than it costs. In India, Citroën shipped the corner-cutting without the cleverness. And Indian buyers, who are among the sharpest value-assessors in the world, noticed immediately.</p>
+
+    <h2>Blunder #2 — The Datsun Trap, Revisited</h2>
+
+    <p>There's a specific pattern in Indian automotive history that every new entrant should study before making a single product decision. Datsun returned with mechanically sound cars — exposed cabin metal, stripped dashboards, basic everything — and called it "affordable." India said no. The Tata Nano was a genuine engineering achievement, the cheapest car ever mass-produced. India still said no. Not because the cars were bad. Because in India, a car is the second most expensive purchase of a person's life, right after a house.</p>
+
+    <div class="pull-quote">
+      <p>"India is not a price-sensitive market. It is a value-sensitive market. The difference cost Datsun everything — and Citroën is making the same miscalculation."</p>
+    </div>
+
+    <p>A car here is a social statement. It's what you drive to your cousin's wedding. It's what the neighbours clock when you reverse into the lane. The moment a brand signals "we built this cheap," the trophy is tarnished, and nobody wants a tarnished trophy.</p>
+
+    <p>Launching the C3 in 2022 without automatic climate control, without a tachometer, and without electric mirror adjustment — in the era of sunroofs and connected cars — sent one message loud and clear: we think India only cares about the price. The engine was genuinely good. The suspension was class-leading. None of it mattered. The Indian buyer will forgive a lighter door panel. They will not forgive a manual mirror stalk on a ₹10 lakh car.</p>
+
+    <p>Maruti has proved this for decades. Their build quality is famously average — the Brazilian-spec C3 Aircross actually scored zero stars on Latin NCAP safety tests. Yet Maruti dominates because their perceived quality is immaculate: the screens, the chrome, the LED projectors, the NEXA showroom experience. They sell aspiration dressed as affordability. Citroën, in its first act in India, sold affordability dressed as nothing at all.</p>
+
+    <h2>Blunder #3 — No Halo, No Hope</h2>
+
+    <p>Here's how the Indian market actually works, and what Citroën refused to learn from its rivals. You don't sell the base model by making it look good. You sell it by making the top model look extraordinary.</p>
+
+    <p>Hyundai's Creta runs from ₹11 lakhs to over ₹21 lakhs. The person buying the base trim isn't buying a base car — they're buying entry into the Creta club, the one with the panoramic sunroof and ventilated seats on the poster. That halo drags the entire range upward. Mahindra does it with the Scorpio-N and Thar sitting at the aspirational peak of their lineup, creating gravitational pull on everything below. Even Kia understood this on day one in India.</p>
+
+    <p>Citroën, until very recently, had none of this. No aspirational anchor. No ₹20 lakh showstopper to make the ₹10 lakh buyer feel like they're part of something bigger. Just a base brand selling stripped models. Their late-2025 "Shift Into The New" strategy — adding LED projector headlamps, a 10.25-inch touchscreen, updated interiors — was the right instinct, but it was features that should have been present in 2022. The 3× sales jump in Q4 2025 versus Q3 looks impressive until you remember it came off a very low base, and their full-year total was still just 6,713 units.</p>
+
+    <div class="callout">
+      <strong>The Export Pivot — A Telling Signal</strong>
+      While domestic numbers struggle, Stellantis India posted 18.8% export growth in 2025, with the Basalt joining the global export portfolio for Africa and ASEAN in 2026. The ₹2,000 crore investment in India is increasingly being justified not by domestic ambition, but by India's value as a manufacturing hub for other markets. When a company starts exporting its way out of a domestic problem, it tells you something about how they feel about their prospects at home.
+    </div>
+
+    <h2>What Should They Actually Do</h2>
+
+    <p>The path forward isn't complicated — but it requires the kind of honest internal reckoning that large organisations tend to avoid. The answer is to stop spreading thin and go deep on one product.</p>
+
+    <p>The C5 Aircross should be discontinued — it serves almost nobody at that price point here. The Basalt needs a serious rethink — the SUV coupe format hasn't proven itself in India, and even the Tata Curvv, a stronger product with far more brand equity, struggled to shift that preference. The C3 Aircross should pull back production — you cannot win against the Creta, the Seltos, the Sierra, and the returning Duster with this brand position, not yet.</p>
+
+    <p>The real opportunity is the C3. It's the most honest product in the lineup, it competes in a segment that isn't yet a full-scale war, and the upcoming global C3 facelift — with a 1.2 turbo — can genuinely fight the Nexon and the Kylaq. A naturally aspirated version competes with the Exter and the Kiger. Those are winnable fights. But only if the car arrives with the full design intent intact — the C-Zen Lounge, the LED signature, the premium variant that creates the halo. Not a diluted emerging-market cost-cut dressed up with a fresh badge.</p>
+
+    <p>The global Citroën is, right now, one of the most interesting design stories in mainstream automotive. Bring that Citroën to India. Not the budget one.</p>
+
+    <hr class="rule">
+
+    <p>The tragedy of Stellantis India isn't that they had bad products. The C3's engine and suspension are genuinely class-leading. The tragedy is that they arrived in one of the world's most aspirational car markets with a globally innovative brand — and then chose to present its worst, most stripped-down face to Indian buyers.</p>
+
+    <p>The Datsun ghost is still in these showrooms. And until Stellantis decides to bring the real Citroën to India — bold design, full features, genuine aspiration — it's going to keep haunting them.</p>
+
+  </div>
+
+  <div class="sign-off">
+    <strong>Gowtham M</strong>
+    MBA in AI & Data Science · RV University<br>
+    Opinions are my own, based on market observation and analysis.
+  </div>
+
+  <div class="copy-wrap">
+    <button class="copy-btn" onclick="copyArticle()">Copy Article Text</button>
+  </div>
+
+</div>
+
+<textarea id="article-text">
+Stellantis in India: Why Global Muscle Is Failing the Local Test
+
+Stellantis is one of the world's top five automakers. Yet in India, they sell fewer cars in a month than Maruti sells in a single afternoon. This isn't a product problem. It's a strategic one — and it starts with a decision made before a single car hit the road.
+
+In 2026, the Indian car market is a graveyard of misread ambitions. From the Tata Nano to the quiet exit of Datsun, the Indian consumer has delivered the same verdict repeatedly: don't sell us a cheap car. Sell us an aspirational one at a fair price. Stellantis, it seems, never got the memo.
+
+Despite sitting on a portfolio of sharp, distinctive brands — Opel, Peugeot, DS — they chose to lead India with a version of Citroën that was deliberately stripped down for cost. The result is a brand that feels like it arrived apologising for itself: 6,713 units sold across the entire calendar year 2025, while Maruti moves that many cars in roughly a day and a half.
+
+Blunder #1 — They Brought the Wrong Design to the Wrong Market
+
+Let's start with what Citroën actually looks like globally, because the gap between that and what India received is the heart of this story.
+
+Globally, Citroën is in the middle of one of the most genuinely interesting design eras of any mainstream brand. Their Oli concept in 2022 was so forward-thinking that BMW and Skoda have since replicated its core dashboard philosophy — the C-Zen Lounge, a completely screenless instrument cluster that projects information via a head-up display. No traditional dashboard. Just emptiness, and pure driving focus. The European C3 and C3 Aircross carry this design forward — C-shaped LED headlights, a futuristic flat-bottom steering wheel, layered dashboard architecture, silver and piano black accents, and a lighting signature that looks genuinely cybernetic. Citroën globally is bold, geometric, polarising in the best possible way.
+
+Now here's what India actually got. The Indian C3 launched in 2022 with an older interior layout, manual mirror adjusters, no tachometer, no automatic climate control, and no sunroof. The Indian C3 Aircross had a completely different front fascia from its European sibling — less premium lighting, older alloy wheel designs, a basic cabin without the sleek two-spoke steering wheel or the silver accents that made the European version look like it belonged in 2024. Even the logo on the Indian car was the old Citroën chevron, while Europe was already wearing the new identity.
+
+The "C-Cubed" Problem: Stellantis developed a specific platform for India and Brazil, explicitly to cut costs for emerging markets. Citroën's own global CEO admitted at launch: "This new C3 differs from the European version." They built an India-specific product from scratch, localised the bones — but forgot to localise the aspiration.
+
+This is the core design betrayal. Globally, Citroën is proving that a "budget" car doesn't have to look like one. The European C3 is described as a car that "cleverly conceals its corner-cutting." In India, Citroën shipped the corner-cutting without the cleverness. Indian buyers, who are among the sharpest value-assessors in the world, noticed immediately.
+
+Blunder #2 — The Datsun Trap, Revisited
+
+There's a specific pattern in Indian automotive history that every new entrant should study before making a single product decision. Datsun returned with mechanically sound cars and called it "affordable." India said no. The Tata Nano was a genuine engineering achievement. India still said no. Not because the cars were bad — because in India, a car is the second most expensive purchase of a person's life, right after a house.
+
+India is not a price-sensitive market. It is a value-sensitive market. The difference cost Datsun everything — and Citroën is making the same miscalculation.
+
+A car here is a social statement. It's what you drive to your cousin's wedding. It's what the neighbours clock when you reverse into the lane. The moment a brand signals "we built this cheap," the trophy is tarnished, and nobody wants a tarnished trophy.
+
+Launching the C3 in 2022 without automatic climate control, without a tachometer, without electric mirror adjustment — in the era of sunroofs and connected cars — sent one message loud and clear: we think India only cares about the price. The engine was genuinely good. The suspension was class-leading. None of it mattered.
+
+Maruti has proved this for decades. Their build quality is famously average — the Brazilian-spec C3 Aircross actually scored zero stars on Latin NCAP safety tests — yet Maruti dominates because their perceived quality is immaculate. They sell aspiration dressed as affordability. Citroën, in its first act in India, sold affordability dressed as nothing at all.
+
+Blunder #3 — No Halo, No Hope
+
+Here's how the Indian market actually works. You don't sell the base model by making it look good. You sell it by making the top model look extraordinary.
+
+Hyundai's Creta runs from ₹11 lakhs to over ₹21 lakhs. The person buying the base trim isn't buying a base car — they're buying entry into the Creta club, the one with the panoramic sunroof and ventilated seats on the poster. That halo drags the entire range upward. Mahindra does it with the Scorpio-N and Thar. Even Kia understood this on day one in India.
+
+Citroën had none of this. No aspirational anchor. No showstopper variant to make the entry-level buyer feel part of something bigger. Their late-2025 "Shift Into The New" strategy — adding LED projectors, a 10.25-inch screen, updated interiors — was the right instinct, but these were features that should have been there in 2022. The 3× sales jump in Q4 versus Q3 2025 looks impressive until you remember it came off a very low base. Full-year 2025 total: 6,713 units.
+
+The Export Pivot — A Telling Signal: While domestic numbers struggle, Stellantis India posted 18.8% export growth in 2025, with the Basalt joining the global export portfolio for Africa and ASEAN in 2026. When a company starts exporting its way out of a domestic problem, it tells you something about their confidence in the home market.
+
+What Should They Actually Do
+
+Stop spreading thin. Go deep on one product.
+
+The C5 Aircross should be discontinued. The Basalt needs a serious rethink — the SUV coupe format hasn't proven itself in India, and even the Tata Curvv struggled to shift that preference. The C3 Aircross should pull back — you cannot win against the Creta, Seltos, the Sierra, and the returning Duster with this brand position, not yet.
+
+The real opportunity is the C3. It competes in a segment that isn't yet a full-scale war, and the upcoming global C3 facelift with a 1.2 turbo can genuinely fight the Nexon and the Kylaq. A naturally aspirated version competes with the Exter and the Kiger. Those are winnable fights — but only if the car arrives with the full design intent intact. The C-Zen Lounge. The LED signature. The premium halo variant. Not a diluted cost-cut dressed up with a fresh badge.
+
+The global Citroën is, right now, one of the most interesting design stories in mainstream automotive. Bring that Citroën to India. Not the budget one.
+
+---
+
+The tragedy of Stellantis India isn't that they had bad products. The C3's engine and suspension are genuinely class-leading. The tragedy is that they arrived in one of the world's most aspirational car markets with a globally innovative brand — and then chose to present its most stripped-down face to Indian buyers.
+
+The Datsun ghost is still in these showrooms. And until Stellantis decides to bring the real Citroën to India — bold design, full features, genuine aspiration — it's going to keep haunting them.
+
+— Gowtham M
+MBA in AI & Data Science · RV University
+
+
+

@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stellantis India: Master Operational & Strategic Blueprint v4 — Gowtham M</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #04050a;
+  --surface: #0c0e17;
+  --surface2: #111420;
+  --border: #1e2235;
+  --red: #e63946;
+  --red-dim: rgba(230,57,70,0.12);
+  --green: #a8ff78;
+  --green-dim: rgba(168,255,120,0.08);
+  --amber: #fbbf24;
+  --text: #f0f2ff;
+  --text-dim: #7882a4;
+  --text-mid: #b0b9d8;
+  --accent: #6366f1;
+  --teal: #2dd4bf;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+
+/* ── SLIDE BASE ──────────────────────────────────────────────── */
+.slide {
+  width: 1280px;
+  min-height: 720px;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 68px 40px;
+  border-bottom: 1px solid var(--border);
+}
+.slide::after {
+  content: attr(data-slide);
+  position: absolute;
+  bottom: 18px; right: 22px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #252940;
+  letter-spacing: 0.1em;
+}
+.slide-glow-red::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(230,57,70,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+.slide-glow-green::before {
+  content: '';
+  position: absolute;
+  bottom: -120px; left: -60px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(168,255,120,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.eyebrow span { color: var(--red); }
+.slide-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 32px;
+  max-width: 860px;
+}
+.slide-title em { color: var(--red); font-style: italic; }
+.slide-title .hi { color: var(--green); font-style: normal; }
+h3 { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
+h3.green { color: var(--green); }
+h3.red { color: var(--red); }
+h3.amber { color: var(--amber); }
+h3.dim { color: var(--text-dim); }
+h3.teal { color: var(--teal); }
+p, li { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+li { margin-bottom: 7px; }
+ul { padding-left: 18px; }
+strong { color: var(--text); font-weight: 600; }
+
+/* ── LAYOUT ─────────────────────────────────────────────────── */
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.cols-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+.cols-6040 { display: grid; grid-template-columns: 60fr 40fr; gap: 24px; }
+
+.box { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+.box.red-border { border-color: rgba(230,57,70,0.4); background: var(--red-dim); }
+.box.green-border { border-color: rgba(168,255,120,0.25); background: var(--green-dim); }
+.box.amber-border { border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); }
+.box.teal-border { border-color: rgba(45,212,191,0.3); background: rgba(45,212,191,0.05); }
+.box.accent-border { border-color: rgba(99,102,241,0.35); background: rgba(99,102,241,0.06); }
+
+/* ── STATS ──────────────────────────────────────────────────── */
+.stat { text-align: center; }
+.stat-num { font-family: 'DM Serif Display', serif; font-size: 46px; line-height: 1; display: block; margin-bottom: 5px; }
+.stat-num.red { color: var(--red); }
+.stat-num.green { color: var(--green); }
+.stat-num.amber { color: var(--amber); }
+.stat-num.teal { color: var(--teal); }
+.stat-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+
+/* ── TABLE ──────────────────────────────────────────────────── */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table thead th { background: #0a0c16; padding: 10px 13px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); text-align: left; border-bottom: 1px solid var(--border); }
+.data-table tbody td { padding: 10px 13px; font-size: 13px; color: var(--text-mid); border-bottom: 1px solid rgba(30,34,53,0.7); }
+.data-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+.data-table .ok { color: var(--green); font-weight: 700; }
+.data-table .fail { color: var(--red); font-weight: 700; }
+.data-table .warn { color: var(--amber); font-weight: 600; }
+.data-table .hi { color: var(--text); font-weight: 700; }
+
+/* ── PULL QUOTE ─────────────────────────────────────────────── */
+.pull { border-left: 3px solid var(--red); padding: 13px 18px; background: var(--red-dim); border-radius: 0 8px 8px 0; }
+.pull p { font-family: 'DM Serif Display', serif; font-size: 17px; font-style: italic; color: var(--text); line-height: 1.5; }
+.pull .attribution { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); margin-top: 7px; }
+
+/* ── TAGS ───────────────────────────────────────────────────── */
+.tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+.tag.red { background: var(--red-dim); color: var(--red); border: 1px solid rgba(230,57,70,0.3); }
+.tag.green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(168,255,120,0.25); }
+.tag.amber { background: rgba(251,191,36,0.1); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
+.tag.teal { background: rgba(45,212,191,0.1); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
+
+/* ── BARS ───────────────────────────────────────────────────── */
+.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+.bar-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); width: 130px; text-align: right; flex-shrink: 0; }
+.bar-track { flex: 1; height: 20px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 8px; }
+.bar-fill span { font-size: 11px; font-weight: 700; color: #fff; font-family: 'Space Mono', monospace; }
+
+/* ── TIMELINE ───────────────────────────────────────────────── */
+.timeline { display: flex; gap: 0; }
+.tl-step { flex: 1; position: relative; }
+.tl-step:not(:last-child)::after { content: '→'; position: absolute; right: -12px; top: 14px; color: var(--border); font-size: 16px; z-index: 2; }
+.tl-dot { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; margin-bottom: 10px; font-family: 'Space Mono', monospace; }
+.tl-dot.past { background: var(--surface2); border: 2px solid var(--border); color: var(--text-dim); }
+.tl-dot.now { background: var(--red); color: #fff; box-shadow: 0 0 0 5px rgba(230,57,70,0.15); }
+.tl-dot.future { background: var(--surface2); border: 2px dashed var(--text-dim); color: var(--text-dim); }
+.tl-date { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); margin-bottom: 3px; }
+.tl-event { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.tl-sub { font-size: 11px; color: var(--text-dim); }
+
+/* ── PROGRESS ───────────────────────────────────────────────── */
+.progress-metric { margin-bottom: 12px; }
+.progress-meta { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.progress-meta .pm-label { font-size: 12px; color: var(--text-mid); }
+.progress-meta .pm-val { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); }
+.progress-track { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 3px; }
+
+/* ── MISC ───────────────────────────────────────────────────── */
+.divider { height: 1px; background: var(--border); margin: 14px 0; }
+.callout { border-left: 3px solid var(--accent); background: rgba(99,102,241,0.08); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 10px 0; }
+.callout p { font-size: 13px; color: var(--text-mid); }
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+.slide-footer { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; }
+.footer-brand span { color: var(--red); }
+
+/* ── COVER / VERDICT ────────────────────────────────────────── */
+.slide-cover { min-height: 720px; background: linear-gradient(135deg, #04050a 60%, #0d0310 100%); justify-content: flex-end; padding-bottom: 70px; }
+.line-accent { width: 56px; height: 3px; background: var(--red); margin-bottom: 18px; border-radius: 2px; }
+.verdict { border: 1px solid rgba(230,57,70,0.4); border-radius: 12px; padding: 24px 28px; background: var(--red-dim); text-align: center; }
+.verdict .v-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 10px; }
+.verdict .v-text { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--text); line-height: 1.4; }
+
+/* ── J-CURVE CHART ──────────────────────────────────────────── */
+.chart-area { position: relative; width: 100%; height: 200px; }
+.chart-svg { width: 100%; height: 100%; }
+
+/* ── SOP TABLE ──────────────────────────────────────────────── */
+.sop-row { display: grid; grid-template-columns: 120px 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.sop-phase { padding: 14px 16px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--red); border-right: 1px solid var(--border); display: flex; align-items: center; font-weight: 700; }
+.sop-content { padding: 14px 16px; }
+.sop-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.sop-detail { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
+
+/* ── RISK MATRIX ────────────────────────────────────────────── */
+.risk-row { display: grid; grid-template-columns: 200px 80px 80px 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.risk-cell { padding: 11px 14px; font-size: 13px; color: var(--text-mid); border-right: 1px solid var(--border); }
+.risk-cell:last-child { border-right: none; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ SLIDE 01 · COVER -->
+<div class="slide slide-cover" data-slide="01 / 18">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 30%, rgba(230,57,70,0.12) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(99,102,241,0.08) 0%, transparent 50%);pointer-events:none;"></div>
+  <div style="position:absolute;top:50px;left:68px;right:68px;display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;">Gowtham M · Strategic Consultant</div>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--red);">MASTER OPERATIONAL & STRATEGIC BLUEPRINT</div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div class="line-accent"></div>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.25em;color:var(--text-dim);text-transform:uppercase;margin-bottom:18px;">Project Rescue · April 2026</div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:76px;line-height:1.05;color:var(--text);margin-bottom:14px;">STELLANTIS<br><em style="color:var(--red);font-style:italic;">INDIA</em></h1>
+    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:400;color:var(--text-dim);max-width:620px;line-height:1.5;margin-bottom:38px;">Win India: Two Brands. Two Segments. Zero Overlap. — The Board-Level Blueprint for Product, Financials, Execution & Risk.</div>
+    <div style="display:flex;gap:28px;flex-wrap:wrap;">
+      <div class="stat"><span class="stat-num red" style="font-size:34px;">6,713</span><span class="stat-label">Citroën India · FY 2025</span></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div class="stat"><span class="stat-num red" style="font-size:34px;">81</span><span class="stat-label">Meridian Units · Feb 2026</span></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div class="stat"><span class="stat-num amber" style="font-size:34px;">₹700 Cr</span><span class="stat-label">Capital Ask · Avenger Launch</span></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div class="stat"><span class="stat-num green" style="font-size:34px;">₹2,000 Cr</span><span class="stat-label">Projected Yr3 Revenue</span></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div class="stat"><span class="stat-num teal" style="font-size:34px;">18 mo</span><span class="stat-label">Payback Period</span></div>
+    </div>
+  </div>
+  <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-dim);">Gowtham M · MBA in AI & Data Science · RV University</div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 02 · EXECUTIVE SUMMARY & CAPITAL ASK -->
+<div class="slide slide-glow-red" data-slide="02 / 18">
+  <div class="eyebrow"><span>Executive Summary</span> · The Capital Ask</div>
+  <div class="slide-title">The ₹700 Crore Case — <em>why this investment exists,</em> what it unlocks, and what happens if we don't make it</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box red-border" style="margin-bottom:16px;">
+        <h3 class="red">The Problem in One Sentence</h3>
+        <p>Stellantis India is operating two brands — Citroën and Jeep — in a market that rewards clarity, and both brands are currently failing because they have chosen confusion over conviction. Combined domestic volume sits below 1,000 units/month while the factory was built to produce significantly more.</p>
+        <div class="divider"></div>
+        <ul>
+          <li>Citroën: <strong>6,713 units FY2025</strong> — a graveyard of misread aspiration</li>
+          <li>Jeep Meridian: <strong>81 units / Feb 2026</strong> — priced ₹12L above a better rival</li>
+          <li>Basalt: <strong>73 units / month</strong> — a product the market never asked for</li>
+          <li>C5 Aircross: <strong>2 units / month</strong> — functionally discontinued by the buyer</li>
+        </ul>
+      </div>
+      <div class="box green-border" style="margin-bottom:16px;">
+        <h3 class="green">The Solution in One Sentence</h3>
+        <p>Deploy <strong>₹700 Crores</strong> to launch the <strong>Jeep Avenger</strong> (Q4 2026, sub-4m premium compact, ₹9.3L–₹13.5L) and follow 9 months later with <strong>Project X</strong> — a Fiat Grande Panda–derived micro-SUV under a new Citroën identity — targeting the ₹6.5L–₹9L comfort segment. Two products. Two brands. Ten thousand units per month by Year 2. Zero internal overlap.</p>
+      </div>
+      <div class="box amber-border">
+        <h3 class="amber">Capital Allocation Breakdown (₹700 Cr Total)</h3>
+        <div style="margin-top:8px;">
+          <div class="bar-row"><span class="bar-label">CapEx (Tooling)</span><div class="bar-track"><div class="bar-fill" style="width:36%;background:var(--red);"><span>₹250 Cr</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">Launch OpEx</span><div class="bar-track"><div class="bar-fill" style="width:29%;background:var(--amber);"><span>₹200 Cr</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">Working Capital</span><div class="bar-track"><div class="bar-fill" style="width:36%;background:var(--accent);"><span>₹250 Cr</span></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="box" style="margin-bottom:16px;">
+        <h3 class="dim">What the ₹700 Cr Buys</h3>
+        <table class="data-table">
+          <thead><tr><th>Investment Area</th><th>Amount</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td>BIW Retooling · Thiruvallur</td><td class="amber">₹120 Cr</td><td>Avenger body production line ready</td></tr>
+            <tr><td>Interior Molds & NVH</td><td class="amber">₹80 Cr</td><td>Bespoke Jeep cabin — not shared with C3</td></tr>
+            <tr><td>ARAI Homologation</td><td class="amber">₹50 Cr</td><td>BNCAP 5★, BS6 Phase 2 RDE, E20</td></tr>
+            <tr><td>Supplier Tooling (Tier-1)</td><td class="amber">₹80 Cr</td><td>3-month lead time locked</td></tr>
+            <tr><td>Marketing Blitz (Month 9)</td><td class="ok">₹200 Cr</td><td>National launch · 15K test drives/mo</td></tr>
+            <tr><td>Working Capital Buffer</td><td class="ok">₹170 Cr</td><td>12-month runway at pessimistic volume</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box teal-border" style="margin-bottom:16px;">
+        <h3 class="teal">The Cost of Inaction</h3>
+        <p>Renault Bridger and Mahindra Vision S arrive in the sub-4m boxy segment by <strong>Diwali 2027</strong>. Every month of delay narrows the first-mover window. The ₹700 Cr spent today purchases 12 months of market incumbency. After 2027, that premium is gone — and Stellantis is fighting as a late entrant with no pricing power.</p>
+      </div>
+      <div class="verdict">
+        <div class="v-label">Board Recommendation</div>
+        <div class="v-text">"₹700 Crores is not a bet on a new product. It is the price of converting ₹2,000 Crores of stranded investment into a revenue-generating machine."</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant · RV University</span></div>
+    <div class="footer-brand">Executive Summary · The Capital Ask</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 03 · RCA I CITROËN -->
+<div class="slide slide-glow-red" data-slide="03 / 18">
+  <div class="eyebrow"><span>RCA I</span> · Citroën</div>
+  <div class="slide-title">The <em>Frugality Trap</em> — How Citroën misread the Indian aspiration curve</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box red-border" style="margin-bottom:14px;">
+        <h3 class="red">The Core Mistake: Wrong Model, Wrong Market</h3>
+        <p>Stellantis built an <strong>India-specific platform</strong> (CMP "Smart Car") explicitly to cut costs. The global CEO confirmed the Indian C3 <em>deliberately differs</em> from its European sibling. They localised the bones — but forgot to localise the aspiration.</p>
+        <div class="divider"></div>
+        <p>What India received: manual mirror stalks, no tachometer, hard plastic dash, no sunroof, old chevron logo — while Europe got the C-Zen Lounge interior, C-shaped LED headlamps, and a screenless HUD that BMW has since copied.</p>
+      </div>
+      <div class="box" style="margin-bottom:14px;">
+        <h3 class="dim">The Datsun Parallel — A Warning Ignored</h3>
+        <p>Datsun returned with mechanically solid but visually stripped cars. India said no — not because of engineering, but because the car signalled <strong>"we built this cheap."</strong> Citroën's C3 launch in 2022 replicated this exact mistake. The engine was class-leading. None of it mattered.</p>
+      </div>
+      <div class="box">
+        <h3 class="dim">The "No Halo" Failure</h3>
+        <p>Hyundai sells the Creta from ₹11L to ₹21L. The base buyer buys into the <strong>Creta Club.</strong> The halo variant does the selling for the whole range. Citroën launched with no halo, no aspirational ceiling — just a base brand selling stripped models.</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Feature Gap: India vs. Global C3 at Launch (2022)</h3>
+      <table class="data-table" style="margin-bottom:18px;">
+        <thead><tr><th>Feature</th><th>European C3</th><th>Indian C3</th><th>Rival (Punch)</th></tr></thead>
+        <tbody>
+          <tr><td>Interior LED</td><td class="ok">C-Zen Lounge</td><td class="fail">Basic / Absent</td><td class="warn">Standard</td></tr>
+          <tr><td>Climate Control</td><td class="ok">Auto AC</td><td class="fail">Manual AC</td><td class="ok">Auto AC (top)</td></tr>
+          <tr><td>Mirror Adjustment</td><td class="ok">Electric</td><td class="fail">Manual Stalk</td><td class="ok">Electric</td></tr>
+          <tr><td>Instrument Cluster</td><td class="ok">HUD / C-Zen</td><td class="fail">No Tachometer</td><td class="warn">Basic Digital</td></tr>
+          <tr><td>Brand Logo</td><td class="ok">New Identity</td><td class="fail">Old Chevron</td><td class="ok">Current</td></tr>
+          <tr><td>Safety (NCAP)</td><td class="ok">Designed for 5★</td><td class="fail">0★ (LatinNCAP)</td><td class="ok">5★ GNCAP</td></tr>
+        </tbody>
+      </table>
+      <h3 class="red" style="margin-bottom:10px;">Volume Reality (2025 Full Year)</h3>
+      <div class="bar-row"><span class="bar-label">Basalt</span><div class="bar-track"><div class="bar-fill" style="width:2%;background:var(--red);"><span>73/mo</span></div></div></div>
+      <div class="bar-row"><span class="bar-label">C5 Aircross</span><div class="bar-track"><div class="bar-fill" style="width:1%;background:var(--red);"><span>2/mo</span></div></div></div>
+      <div class="bar-row"><span class="bar-label">C3 Aircross</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:var(--amber);"><span>~280/mo</span></div></div></div>
+      <div class="bar-row"><span class="bar-label">C3</span><div class="bar-track"><div class="bar-fill" style="width:35%;background:var(--accent);"><span>~450/mo</span></div></div></div>
+      <div class="bar-row"><span class="bar-label">Rival: Nexon</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--green);"><span>~13,000/mo</span></div></div></div>
+      <div class="box amber-border" style="margin-top:14px;">
+        <h3 class="amber">The Export Tell</h3>
+        <p>18.8% export growth in 2025 with the Basalt joining Africa/ASEAN confirms: Stellantis has quietly shifted India from a domestic market to a low-cost manufacturing hub. When a company starts exporting its way out of a domestic problem, it tells you everything.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Diagnosis · Citroën</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 04 · RCA II JEEP -->
+<div class="slide slide-glow-red" data-slide="04 / 18">
+  <div class="eyebrow"><span>RCA II</span> · Jeep</div>
+  <div class="slide-title">The <em>Heritage Ego</em> — Over-engineering the wrong capability in a 4×2 market</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box red-border" style="margin-bottom:14px;">
+        <h3 class="red">The 4×4 Fallacy in a 4×2 Nation</h3>
+        <p>The Indian SUV buyer does not go off-road. They buy SUVs for ground clearance on bad urban roads and the road presence that signals status. The 4×4 transfer case, low-range gears, locking differentials: engineering the Indian buyer is paying for but will never use.</p>
+        <div class="divider"></div>
+        <p><strong>Proof:</strong> Over 80% of Thar and Scorpio-N sales are <strong>4×2 (RWD) variants.</strong> Indians want the Jeep silhouette at Mahindra prices — and Mahindra gave it to them.</p>
+      </div>
+      <div class="box" style="margin-bottom:14px;">
+        <h3 class="dim">The Monocoque Contradiction</h3>
+        <p>The Meridian is a <strong>monocoque (unibody) chassis</strong> — same architecture as the Hyundai Creta. Monocoque is designed for on-road stability and passenger safety, not serious off-road articulation. Jeep markets it with Wrangler-level heritage at ₹38L. The XUV700 is also monocoque — and Mahindra sells it honestly as an urban family hauler. For ₹12L less. With more power.</p>
+      </div>
+      <div class="box">
+        <h3 class="dim">The Showroom Schizophrenia</h3>
+        <p>Jeep sells ₹22L Compass next to ₹95L+ Grand Cherokees in the same showroom. The luxury buyer feels the brand is too common. The mass buyer feels priced out. Maruti built NEXA to solve exactly this. Jeep sells a Wrangler next to a Compass and wonders why neither sells.</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Value Audit: Meridian vs. XUV700</h3>
+      <table class="data-table" style="margin-bottom:18px;">
+        <thead><tr><th>Specification</th><th>Jeep Meridian (Overland)</th><th>Mahindra XUV700 (AX7L)</th></tr></thead>
+        <tbody>
+          <tr><td>Price (Top-End)</td><td class="fail">₹37–38 Lakhs</td><td class="ok">₹25–26 Lakhs</td></tr>
+          <tr><td>Engine Power</td><td class="fail">168 bhp / 350 Nm</td><td class="ok">197 bhp / 380 Nm</td></tr>
+          <tr><td>Chassis Type</td><td class="warn">Monocoque</td><td class="warn">Monocoque</td></tr>
+          <tr><td>Infotainment</td><td class="fail">10.1" Basic</td><td class="ok">Triple-Screen 10.25"+</td></tr>
+          <tr><td>ADAS</td><td class="fail">Absent</td><td class="ok">Level 2 (ADAS)</td></tr>
+          <tr><td>Monthly Volume</td><td class="fail">~81 units</td><td class="ok">~5,000+ units</td></tr>
+          <tr><td>Value Verdict</td><td class="fail" colspan="2">Buyer pays ₹12L MORE for less power, less tech, fewer features</td></tr>
+        </tbody>
+      </table>
+      <div class="pull" style="margin-bottom:14px;">
+        <p>"Jeep is charging a ₹12 lakh premium for a badge — in a market where that money buys a better car from the competitor."</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="box"><div class="stat"><span class="stat-num red" style="font-size:40px;">-40.9%</span><span class="stat-label">Meridian YoY Decline · Feb 2026</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num red" style="font-size:40px;">81</span><span class="stat-label">Units Sold Nationally · Feb 2026</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Diagnosis · Jeep</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 05 · BURNING PLATFORM -->
+<div class="slide slide-glow-red" data-slide="05 / 18">
+  <div class="eyebrow"><span>Market Intelligence</span> · April 2026</div>
+  <div class="slide-title">The <em>Burning Platform</em> — Why inaction is no longer a strategy</div>
+  <div class="cols-2" style="flex:1;gap:28px;">
+    <div>
+      <h3 class="red" style="margin-bottom:14px;">The Kylaq Proof: What India Actually Wants</h3>
+      <p style="margin-bottom:14px;">Skoda's Kylaq launched late 2024 and crossed <strong>50,000 cumulative sales</strong> by April 2026 — growing 40%+ MoM. What did it prove?</p>
+      <div class="box green-border" style="margin-bottom:12px;">
+        <ul>
+          <li>Indians in ₹8L–₹15L will pay a premium for a <strong>European badge with boxy stance.</strong></li>
+          <li>They need ground clearance, road presence, and a name to say at the dinner table.</li>
+          <li>The Kylaq's success uses exactly what Stellantis already has — a localised 1.2L turbo, CMP platform, European parentage.</li>
+        </ul>
+      </div>
+      <h3 class="amber" style="margin-bottom:10px;">The SUV-Coupe Verdict: A Segment India Rejected</h3>
+      <p style="margin-bottom:10px;">Tata Curvv — stronger product, more brand equity than Basalt — collapsed <strong>~50% YoY</strong> in early 2026. India wants the tall, boxy silhouette for maximum road presence. The sloping coupe roofline sacrifices exactly that.</p>
+      <div class="box red-border">
+        <p>Conclusion: Every rupee spent on the Basalt is a rupee not spent on the product that actually has a chance.</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="red" style="margin-bottom:12px;">The 2027 Threat: The Closing Window</h3>
+      <p style="margin-bottom:14px;">Two major players are preparing to flood the boxy sub-4m segment. Once they arrive, Stellantis is a late entrant with no pricing power.</p>
+      <div class="box amber-border" style="margin-bottom:12px;">
+        <h3 class="amber">Renault Bridger (ETA: Diwali 2027)</h3>
+        <p>Mini-Duster. Tailgate spare wheel, 200mm+ clearance, ₹7L–₹13L. India loves the Duster. This will be massive. Renault's service network is already in place.</p>
+      </div>
+      <div class="box amber-border" style="margin-bottom:18px;">
+        <h3 class="amber">Mahindra Vision S / XUV 1XO (ETA: Early 2027)</h3>
+        <p>Test mules spotted Manali, March 2026. Boxy Scorpio-N-inspired sub-4m. Likely diesel-automatic option. Mahindra's brand pull in this space is enormous.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-step"><div class="tl-dot past">Q3</div><div class="tl-date">2025</div><div class="tl-event">Kylaq Disrupts</div><div class="tl-sub">Segment proven</div></div>
+        <div class="tl-step"><div class="tl-dot now">Q4</div><div class="tl-date">2026</div><div class="tl-event">Avenger Launch</div><div class="tl-sub">Pre-emptive strike</div></div>
+        <div class="tl-step"><div class="tl-dot future">Q3</div><div class="tl-date">2027</div><div class="tl-event">Project X</div><div class="tl-sub">Volume tsunami</div></div>
+        <div class="tl-step"><div class="tl-dot future">Q4</div><div class="tl-date">2027</div><div class="tl-event">Renault/Mahindra</div><div class="tl-sub">Stellantis is incumbent</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Market Context · April 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 06 · JEEP AVENGER PIVOT -->
+<div class="slide slide-glow-green" data-slide="06 / 18">
+  <div class="eyebrow"><span>Strategic Pivot</span> · Recommendation 01</div>
+  <div class="slide-title">Platform Arbitrage — The <span class="hi">Jeep Avenger</span> Pre-emptive Strike</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box green-border" style="margin-bottom:14px;">
+        <h3 class="green">The Core Logic: Sweat the Asset</h3>
+        <p>Don't build a new factory. Don't develop a new engine. The tools are already in Thiruvallur, Tamil Nadu. <strong>Use them with a Jeep badge.</strong></p>
+        <div class="divider"></div>
+        <ul>
+          <li><strong>Platform:</strong> CMP (Smart Car) — 90% localised. Avenger uses <em>global CMP spec</em>: higher NVH insulation, stiffer chassis, acoustic glass.</li>
+          <li><strong>Engine:</strong> 1.2L PureTech Turbo (110 PS). Never call it a Citroën engine. Market as <strong>STLA PureTech 110</strong> — 2023 European Car of the Year engine. BS6 Phase 2 RDE + E20 compliant.</li>
+          <li><strong>Drivetrain:</strong> 4×2 ONLY. No transfer case. No unnecessary cost. India doesn't need it.</li>
+        </ul>
+      </div>
+      <div class="box" style="margin-bottom:14px;">
+        <h3 class="dim">Mandatory Interior Standards</h3>
+        <ul>
+          <li>Dual 10.25" screens (instrument + infotainment) — Core & Top variants</li>
+          <li>Soft-touch dashboard — zero hard plastics at contact points</li>
+          <li>Vegan-leather / perforated seats with contrast stitching (Top)</li>
+          <li>Jeep-specific UI: dark mode, topographic map styling, clinometer widget</li>
+          <li>6 airbags + ESC + ISOFIX standard across all variants (BNCAP 5★ target)</li>
+          <li>Acoustic firewall deadening — class-leading NVH as primary USP</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Variant Tier & Pricing</h3>
+      <table class="data-table" style="margin-bottom:16px;">
+        <thead><tr><th>Tier</th><th>Price (Ex-Showroom)</th><th>Strategic Role</th><th>Mix Target</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">Entry (The Hook)</td><td>₹9.29L – ₹9.49L</td><td>Footfall engine. Turbo std. No obvious cost-cutting.</td><td class="warn">20%</td></tr>
+          <tr><td class="hi">Core (Money Maker)</td><td>₹10.49L – ₹11.79L</td><td>Dual screens, soft-touch. Primary volume driver.</td><td class="ok">70%</td></tr>
+          <tr><td class="hi">Top (Image Builder)</td><td>₹12.49L – ₹13.49L</td><td>ADAS, panoramic sunroof, vegan leather. Halo.</td><td class="warn">10%</td></tr>
+        </tbody>
+      </table>
+      <h3 class="green" style="margin-bottom:10px;">Competitive Position</h3>
+      <table class="data-table" style="margin-bottom:14px;">
+        <thead><tr><th>Rival</th><th>Their Edge</th><th>Avenger Counter</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">Skoda Kylaq</td><td>European DNA</td><td class="ok">Stronger badge, Jeep heritage</td></tr>
+          <tr><td class="hi">Tata Nexon</td><td>5★ safety, volume king</td><td class="ok">Premium interior, NVH superiority</td></tr>
+          <tr><td class="hi">Maruti Brezza</td><td>Reliability, network</td><td class="ok">Jeep is not a Maruti — status gap</td></tr>
+          <tr><td class="hi">Kia Sonet</td><td>Tech-heavy, sleek</td><td class="ok">Boxy stance = more road presence</td></tr>
+        </tbody>
+      </table>
+      <div class="box amber-border">
+        <h3 class="amber">The Psychological Kill-Shot</h3>
+        <p>At ₹9.99L, the choice between a Maruti and a Jeep is an emotional landslide. The badge alone converts buyers who would otherwise take months to decide. Blended contribution margin: <strong>₹1.07 Lakhs/unit.</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Pivot Strategy · Jeep Avenger</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 07 · CITROËN CONSOLIDATION + PROJECT X -->
+<div class="slide" data-slide="07 / 18">
+  <div class="eyebrow"><span>Strategic Pivot</span> · Recommendation 02</div>
+  <div class="slide-title">Citroën Consolidation — Shrink to grow. <em>Project X: the Fiat Grande Panda play</em></div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box red-border" style="margin-bottom:12px;">
+        <h3 class="red">Immediate Cuts: Discontinue C5 Aircross & Basalt (Domestic)</h3>
+        <p>C5 Aircross: 2 units/month — inventory liability, not a product. Basalt: SUV-coupe format proven unviable by Tata Curvv's ~50% YoY collapse. Move both to export-only (Africa/ASEAN). Free the factory for what sells.</p>
+      </div>
+      <div class="box amber-border" style="margin-bottom:12px;">
+        <h3 class="amber">Reduce: C3 Aircross Production</h3>
+        <p>Trapped between Creta (more features) and XUV700 (more power, less money). Cannot win vs. Seltos, Sierra, returning Duster. Keep as niche 7-seater utility. Stop chasing volume in a segment it cannot lead.</p>
+      </div>
+      <div class="box green-border" style="margin-bottom:12px;">
+        <h3 class="green">Project X: The Fiat Grande Panda–Derived Micro-SUV</h3>
+        <p>Project X is not a C3 facelift. It is a <strong>sub-4m micro-SUV built on the CMP platform using the Fiat Grande Panda body architecture</strong> — wider (+15mm), taller, more road-present than the C3. Launched under a <strong>new Citroën name</strong> to break from the C3's budget perception entirely.</p>
+        <div class="divider"></div>
+        <ul>
+          <li><strong>Phase 1 (Launch):</strong> 1.2L NA · 82 PS — high reliability, low running cost, ₹6.5L–₹9L</li>
+        <div class="box amber-border" style="margin-top:12px;">
+          <h3 class="amber">⚠ Key Engineering Assumption — Requires Validation</h3>
+          <p style="font-size:13px;">The Fiat Grande Panda launched in Europe in late 2024 on <strong>eCMP2 platform</strong> — a newer architecture than the original CMP used in India. "Grande Panda–derived body on CMP" therefore implies a hybrid integration: adapting the body design and proportions while retaining India's existing CMP floorpan and crash structure. This is not a simple bolt-on exercise. It requires:</p>
+          <ul style="margin-top:8px;">
+            <li>Custom body-to-floor interface engineering (~3–4 months Stellantis engineering validation)</li>
+            <li>ARAI re-homologation of the body-frame integration under BNVSAP norms</li>
+            <li>Potential CapEx overage of ₹60–100 Cr if new body tooling exceeds base estimate</li>
+            <li>6-month timeline risk if eCMP2/CMP compatibility requires structural redesign</li>
+          </ul>
+          <p style="font-size:13px;margin-top:8px;"><strong>Board action required:</strong> Stellantis engineering sign-off on CMP-body compatibility before Project X is approved as a deliverable. If the hybrid integration is not feasible, the fallback is a C3 body with Grande Panda exterior design language applied as a reskin — lower cost, faster timeline, reduced differentiation. This decision gates the Month 9 Project X approval checkpoint.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Project X: Pricing & Variant Architecture</h3>
+      <table class="data-table" style="margin-bottom:14px;">
+        <thead><tr><th>Variant</th><th>Price</th><th>Key Features</th><th>Mix</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">🟢 Entry</td><td>₹6.49–₹6.79L</td><td>7" screen, robust build, rear AC</td><td class="warn">20%</td></tr>
+          <tr><td class="hi">🟡 Core</td><td>₹7.29–₹8.29L</td><td>10" infotainment, auto AC, alloys</td><td class="ok">65%</td></tr>
+          <tr><td class="hi">🔵 Top</td><td>₹8.49–₹8.99L</td><td>Sunroof, connected car, ADAS-ready</td><td class="warn">15%</td></tr>
+        </tbody>
+      </table>
+      <div class="box" style="margin-bottom:12px;">
+        <h3 class="dim">Positioning: "Comfort That Conquers Indian Roads"</h3>
+        <p>Project X does not fight on price. It fights on <strong>ride quality, NVH, and seat comfort</strong> — the three things the Punch and Exter do not prioritise. Target: 6,000–8,000 units/month by Month 12 after launch (capturing 50% of sub-₹10L segment share within Stellantis's reach).</p>
+        <div class="divider"></div>
+        <p>Competing rivals: Tata Punch, Hyundai Exter, Renault Kiger. GTM hook: <em>"Potholes? Invisible."</em> Demo events + influencer long-haul drives proving 500km zero-fatigue seating.</p>
+      </div>
+      <div class="box accent-border">
+        <h3 style="color:var(--accent);">Why Not the C3 Name?</h3>
+        <p>Kia was never launched as "budget Hyundai." Similarly, Project X must escape the C3's budget perception. The Grande Panda–derived body, new badge, new name, new launch identity. The CMP platform is an operational decision — not a brand decision.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Pivot Strategy · Citroën Consolidation & Project X</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 08 · STAGGERED LAUNCH -->
+<div class="slide" data-slide="08 / 18">
+  <div class="eyebrow"><span>Launch Architecture</span> · The 9-Month Sequence</div>
+  <div class="slide-title">Temporal Staggering — Why launching together would <em>destroy both brands</em></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:22px;">
+    <div class="box" style="border-top:3px solid var(--red);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--red);letter-spacing:0.15em;margin-bottom:7px;">PHASE 1 · MONTH 0</div>
+      <h3 class="red">Jeep Avenger Launch</h3>
+      <div class="divider"></div>
+      <p>Maximum noise. Premium interior, Jeep badge, ₹9.99L. <strong>No mention of Citroën. No mention of the shared platform.</strong> Only Jeep. Only global pedigree.</p>
+      <div class="divider"></div>
+      <p><strong>Achieves:</strong> Forces market to accept a Jeep at ₹10L. Makes CMP platform credible as premium architecture. Earns 9 months of headlines before Project X appears.</p>
+    </div>
+    <div class="box" style="border-top:3px solid var(--accent);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.15em;margin-bottom:7px;">PHASE 2 · MONTHS 1–8</div>
+      <h3 style="color:var(--accent);">Export Push + C3X Anchor</h3>
+      <div class="divider"></div>
+      <p>Citroën domestic narrows to <strong>C3X (NA)</strong> — utility, fleet, first-time buyers. No competing identity with the Avenger. 250 Tier-2/Tier-3 outlets, 15K test drives/month.</p>
+      <div class="divider"></div>
+      <p>Citroën export scale-up for Africa/ASEAN keeps Thiruvallur plant at full capacity — generating cash flow that funds Phase 3 launch marketing.</p>
+    </div>
+    <div class="box" style="border-top:3px solid var(--green);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--green);letter-spacing:0.15em;margin-bottom:7px;">PHASE 3 · MONTH 9+</div>
+      <h3 class="green">Project X Launch</h3>
+      <div class="divider"></div>
+      <p>New name. New badge. Grande Panda–derived body. The market knows the platform is premium — 9 months of Jeep Avenger reviews proved it. Project X inherits the credibility.</p>
+      <div class="divider"></div>
+      <p><strong>Turbo phase in Year 2.</strong> NA first to capture volume, Turbo to capture margin. 100 premium Jeep hubs separate from 250 Citroën comfort outlets.</p>
+    </div>
+  </div>
+  <div class="cols-2">
+    <div class="box red-border">
+      <h3 class="red">Why NOT launching together is critical</h3>
+      <p>Simultaneous launch immediately connects the platforms. The "cheap Citroën" association transfers directly to the Avenger. The ₹10L Jeep feels like a rebadged budget car — exactly the problem we are solving. <strong>The 9-month gap creates psychological distance. It is not a delay. It is the strategy.</strong></p>
+    </div>
+    <div class="box teal-border">
+      <h3 class="teal">Shared Service Infrastructure: The Hidden Dividend</h3>
+      <p>Because Avenger and Project X share CMP platform and PureTech engine, <strong>Citroën workshops service both.</strong> Jeep's service anxiety problem — which has driven buyers away for years — is partially solved overnight. Every Citroën service point becomes a Jeep Avenger point. <strong>Network scale without network cost.</strong></p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Launch Sequence · Temporal Architecture</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 09 · PRODUCT HIERARCHY -->
+<div class="slide" data-slide="09 / 18">
+  <div class="eyebrow"><span>Portfolio Architecture</span> · Win India</div>
+  <div class="slide-title">Two Brands. Two Segments. <em>Zero Overlap.</em></div>
+  <div style="overflow-x:auto;margin-bottom:22px;">
+    <table class="data-table" style="min-width:900px;">
+      <thead><tr><th>Tier</th><th>Model</th><th>Brand</th><th>Engine</th><th>Price Band</th><th>Identity</th><th>Target Rivals</th><th>Volume Goal</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag amber">Anchor</span></td><td class="hi">Citroën C3X</td><td>Citroën</td><td>1.2L NA · 82 PS</td><td>₹5.5L–₹8.5L</td><td>Fleet · Value · Utility</td><td>Punch, Exter, Kiger</td><td>400–600/mo</td></tr>
+        <tr style="background:rgba(168,255,120,0.03);"><td><span class="tag green">Volume</span></td><td class="hi">Project X (New Name)</td><td>Citroën</td><td>1.2L NA → Turbo (Yr2)</td><td>₹6.5L–₹9L</td><td>Comfort King · Road Wellness</td><td>Punch, Exter</td><td>6,000–8,000/mo</td></tr>
+        <tr style="background:rgba(99,102,241,0.04);"><td><span class="tag" style="background:rgba(99,102,241,0.12);color:var(--accent);border-color:rgba(99,102,241,0.3);">Halo</span></td><td class="hi">Jeep Avenger</td><td>Jeep</td><td>1.2L Turbo · 110 PS (Jeep Tune)</td><td>₹9.3L–₹13.5L</td><td>Urban Status · Premium Icon</td><td>Kylaq, Nexon, Sonet</td><td>3,500–4,500/mo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cols-3">
+    <div class="box">
+      <h3 class="amber">Engine Separation: The Turbo Moat</h3>
+      <p>C3X keeps the NA engine — workmanlike reliability. Project X launches NA, adds Turbo in Year 2 as a premium step-up. Avenger is Turbo-only from Day 1. The Turbo badge is aspirational. The NA is honest. <strong>No confusion. No overlap.</strong></p>
+    </div>
+    <div class="box">
+      <h3 class="green">Interior Tiering: Materials Signal the Tier</h3>
+      <p>C3X: hard-wearing fabric, functional. Project X: soft-touch accents, 10" screen, auto AC. Jeep Avenger: <strong>full vegan-leather, dual 10.25" screens, Jeep-specific UI, acoustic glass.</strong> Buyer feels the upgrade physically at every touchpoint.</p>
+    </div>
+    <div class="box">
+      <h3 style="color:var(--accent);">Brand Separation: The Kia–Hyundai Model</h3>
+      <p>Kia was never "budget Hyundai." Jeep is not "premium Citroën." The shared architecture is an operational decision — <strong>not a brand decision.</strong> 100 Jeep premium hubs vs 250 Citroën comfort outlets. Never in the same room.</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Portfolio Design · Three-Tier Architecture</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 10 · PRICING & UNIT ECONOMICS -->
+<div class="slide slide-glow-green" data-slide="10 / 18">
+  <div class="eyebrow"><span>Financial Intelligence</span> · Stress-Tested Pricing & Unit Economics</div>
+  <div class="slide-title">The <em>unit economics</em> that make the ₹700 Cr case irrefutable</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <h3 class="green" style="margin-bottom:12px;">Jeep Avenger — Unit Economics</h3>
+      <table class="data-table" style="margin-bottom:16px;">
+        <thead><tr><th>Metric</th><th>Entry Variant</th><th>Core Variant</th><th>Top Variant</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">ASP (Ex-Show.)</td><td>₹9.39L</td><td>₹11.14L</td><td>₹12.99L</td></tr>
+          <tr><td class="hi">Variable Cost</td><td>₹8.42L</td><td>₹9.87L</td><td>₹11.20L</td></tr>
+          <tr><td class="hi">Contribution Margin</td><td class="warn">₹0.97L (10.3%)</td><td class="ok">₹1.27L (11.4%)</td><td class="ok">₹1.79L (13.8%)</td></tr>
+          <tr><td class="hi">Mix Target</td><td>20%</td><td>70%</td><td>10%</td></tr>
+        </tbody>
+      </table>
+      <div class="box green-border" style="margin-bottom:14px;">
+        <h3 class="green">Blended Contribution Margin: ₹1.07L / Unit</h3>
+        <p>At the 70% Core variant mix, the blended contribution margin of <strong>₹1.07 Lakhs per unit</strong> provides the financial floor for the business case. This number is stress-tested — it holds even at a 15% ASP reduction in a price war scenario.</p>
+      </div>
+      <h3 class="teal" style="margin-bottom:12px;">Project X — Unit Economics</h3>
+      <table class="data-table">
+        <thead><tr><th>Metric</th><th>Entry</th><th>Core</th><th>Top</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">ASP</td><td>₹6.64L</td><td>₹7.79L</td><td>₹8.74L</td></tr>
+          <tr><td class="hi">Variable Cost</td><td>₹5.5L</td><td>₹5.85L</td><td>₹5.92L</td></tr>
+          <tr><td class="hi">Contribution Margin</td><td class="warn">₹1.14L (17%)</td><td class="ok">₹1.94L (25%)</td><td class="ok">₹2.82L (32%)</td></tr>
+          <tr><td class="hi">Mix Target</td><td>20%</td><td>65%</td><td>15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="box" style="margin-bottom:14px;">
+        <h3 class="dim">What Drives the Variable Cost — Avenger vs. Project X</h3>
+        <p style="font-size:12px;margin-bottom:10px;color:var(--text-dim);">Project X's variable cost (₹5.5L–₹5.92L) is structurally lower than the Avenger (₹8.42L–₹11.20L) due to three specific deltas:</p>
+        <ul>
+          <li><strong>Engine cost delta:</strong> Project X (NA only at launch, 82 PS) vs Avenger (110 PS Turbo) — NA powertrain saves ~₹0.65L/unit at supplier level. The same CMP platform, different powertrain spec.</li>
+          <li><strong>Interior spec delta:</strong> Project X targets a ₹6.5L–₹9L segment — fabric seats, single 10" screen, standard plastics on non-contact surfaces. Avenger mandates vegan-leather, dual 10.25" screens, acoustic glass. Interior bill-of-materials difference: ~₹1.8L–₹2.0L per unit.</li>
+          <li><strong>Amortisation advantage:</strong> Project X launches after Avenger has already absorbed tooling depreciation on the CMP BIW setup. Shared factory fixed costs are sunk by Month 9. Project X carries no new platform development cost — only body adaptation tooling (~₹60 Cr one-time, amortised over projected volume).</li>
+          <li><strong>NVH grade:</strong> Project X's NVH target (comfort positioning) uses hydraulic bump stops and standard deadening, not Avenger's acoustic firewall package. Saves ~₹0.35L/unit vs Avenger spec.</li>
+        </ul>
+      </div>
+      <div class="cols-2" style="margin-bottom:14px;">
+        <div class="box"><div class="stat"><span class="stat-num green" style="font-size:36px;">₹1.07L</span><span class="stat-label">Blended CM/Unit · Avenger</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num teal" style="font-size:36px;">26%</span><span class="stat-label">Blended Margin % · Project X</span></div></div>
+      </div>
+      <div class="box amber-border">
+        <h3 class="amber">Price War Stress Test</h3>
+        <p>If Tata or Hyundai drops top-variant prices by ₹50K to undercut Avenger Core: <strong>Do not engage.</strong> Hold the line. Pivot marketing entirely to NVH and ride quality comparisons. Sell the "Jeep Upgrade" narrative, not the discount narrative. The contribution margin at Core remains positive even at ₹50K ASP compression.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Unit Economics · Stress-Tested Pricing</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 11 · YEARLY REVENUE MODEL + J-CURVE -->
+<div class="slide slide-glow-green" data-slide="11 / 18">
+  <div class="eyebrow"><span>Financial Model</span> · Yearly Revenue & The J-Curve</div>
+  <div class="slide-title">The J-Curve — <em>projected EBITDA trajectory</em> from investment to scale</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Consolidated P&L Snapshot (Avenger + Project X)</h3>
+      <table class="data-table" style="margin-bottom:16px;">
+        <thead><tr><th>Metric</th><th>Year 1 (Ramp-Up)</th><th>Year 2 (Stabilised)</th><th>Year 3 (Scale)</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">Avenger Units/mo</td><td>1,500 → 3,000</td><td class="ok">4,000</td><td class="ok">4,500</td></tr>
+          <tr><td class="hi">Project X Units/mo</td><td>— → 3,000</td><td class="ok">7,000</td><td class="ok">8,000</td></tr>
+          <tr><td class="hi">Total Units/mo</td><td class="warn">~4,500 avg</td><td class="ok">11,000</td><td class="ok">12,500</td></tr>
+          <tr><td class="hi">Avenger ASP</td><td colspan="3">₹11.8L blended</td></tr>
+          <tr><td class="hi">Project X ASP</td><td colspan="3">₹7.6L blended</td></tr>
+          <tr><td class="hi">Total Revenue/yr</td><td class="warn">₹640 Cr</td><td class="ok">₹1,540 Cr</td><td class="ok">₹2,010 Cr</td></tr>
+          <tr><td class="hi">Gross Margin %</td><td class="warn">~20%</td><td class="ok">~28%</td><td class="ok">~30%</td></tr>
+          <tr><td class="hi">EBITDA</td><td class="fail">−₹120 Cr</td><td class="ok">₹285 Cr</td><td class="ok">₹340 Cr</td></tr>
+          <tr><td class="hi">EBITDA Margin</td><td class="fail">Negative</td><td class="ok">18.5%</td><td class="ok">22%</td></tr>
+        </tbody>
+      </table>
+      <div class="box green-border">
+        <h3 class="green">Year 1 Loss is Structural, Not Alarming</h3>
+        <p>The −₹120 Cr Year 1 EBITDA reflects launch OPEX (₹200 Cr marketing blitz), ramp-up inefficiencies, and dealer margin support. It is fully funded by the ₹250 Cr Working Capital Buffer in the capital ask. Year 2 EBITDA of ₹285 Cr represents 238% swing — the J-Curve in action.</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:10px;">J-Curve: EBITDA Trajectory (₹ Crores)</h3>
+      <!-- SVG J-Curve Chart -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+        <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:200px;">
+          <!-- Grid lines -->
+          <line x1="60" y1="20" x2="60" y2="180" stroke="#1e2235" stroke-width="1"/>
+          <line x1="60" y1="180" x2="500" y2="180" stroke="#1e2235" stroke-width="1"/>
+          <line x1="60" y1="100" x2="500" y2="100" stroke="#1e2235" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <line x1="60" y1="60" x2="500" y2="60" stroke="#1e2235" stroke-width="0.5" stroke-dasharray="4,4"/>
+          <!-- Zero line (at y=140) -->
+          <line x1="60" y1="140" x2="500" y2="140" stroke="#e63946" stroke-width="1" stroke-dasharray="6,3" opacity="0.5"/>
+          <text x="44" y="144" font-family="Space Mono" font-size="9" fill="#e63946" opacity="0.7" text-anchor="end">₹0</text>
+          <!-- Y axis labels -->
+          <text x="44" y="24" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="end">+350</text>
+          <text x="44" y="64" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="end">+285</text>
+          <text x="44" y="104" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="end">+150</text>
+          <text x="44" y="184" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="end">−120</text>
+          <!-- X axis labels -->
+          <text x="130" y="198" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="middle">Q1 2027</text>
+          <text x="220" y="198" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="middle">Q3 2027</text>
+          <text x="320" y="198" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="middle">Q1 2028</text>
+          <text x="420" y="198" font-family="Space Mono" font-size="9" fill="#7882a4" text-anchor="middle">Q3 2028</text>
+          <!-- J-Curve path: dip then climb -->
+          <path d="M80,175 C110,178 130,180 160,180 C185,180 200,172 220,165 C240,158 255,148 280,130 C305,112 330,85 360,65 C385,48 410,30 450,22" 
+                stroke="#a8ff78" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Shaded area under curve (above zero line) -->
+          <path d="M260,140 C280,130 305,112 330,85 C355,60 385,40 450,22 L450,140 Z" 
+                fill="rgba(168,255,120,0.06)"/>
+          <!-- Shaded area in negative zone -->
+          <path d="M80,175 C110,178 130,180 160,180 C185,180 200,172 220,165 C240,158 255,148 260,140 L80,140 Z" 
+                fill="rgba(230,57,70,0.08)"/>
+          <!-- Key data points -->
+          <circle cx="130" cy="178" r="4" fill="#e63946"/>
+          <circle cx="280" cy="130" r="4" fill="#fbbf24"/>
+          <circle cx="420" cy="28" r="4" fill="#a8ff78"/>
+          <!-- Labels -->
+          <text x="130" y="170" font-family="Space Mono" font-size="8" fill="#e63946" text-anchor="middle">−₹120 Cr</text>
+          <text x="280" y="122" font-family="Space Mono" font-size="8" fill="#fbbf24" text-anchor="middle">+₹285 Cr</text>
+          <text x="420" y="20" font-family="Space Mono" font-size="8" fill="#a8ff78" text-anchor="middle">+₹340 Cr</text>
+          <!-- Break-even marker -->
+          <line x1="258" y1="130" x2="258" y2="155" stroke="#a8ff78" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="258" y="165" font-family="Space Mono" font-size="8" fill="#a8ff78" text-anchor="middle">Break-Even</text>
+          <!-- Year labels -->
+          <text x="130" y="210" font-family="Syne" font-size="9" fill="#7882a4" text-anchor="middle" font-weight="700">YEAR 1</text>
+          <text x="320" y="210" font-family="Syne" font-size="9" fill="#a8ff78" text-anchor="middle" font-weight="700">YEAR 2</text>
+          <text x="450" y="210" font-family="Syne" font-size="9" fill="#a8ff78" text-anchor="middle" font-weight="700">YEAR 3</text>
+        </svg>
+      </div>
+      <div class="cols-3">
+        <div class="box"><div class="stat"><span class="stat-num red" style="font-size:28px;">−₹120 Cr</span><span class="stat-label">Year 1 EBITDA</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num green" style="font-size:28px;">+₹285 Cr</span><span class="stat-label">Year 2 EBITDA</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num green" style="font-size:28px;">+₹340 Cr</span><span class="stat-label">Year 3 EBITDA</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Financial Model · J-Curve & Revenue Trajectory</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 12 · BREAK-EVEN ANALYSIS -->
+<div class="slide" data-slide="12 / 18">
+  <div class="eyebrow"><span>Financial Intelligence</span> · Break-Even Analysis</div>
+  <div class="slide-title">The <em>break-even threshold</em> — what volume we need and why we'll hit it</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box red-border" style="margin-bottom:14px;">
+        <h3 class="red">Monthly Break-Even Volume: 4,283 Units (Avenger)</h3>
+        <p>At a blended contribution margin of <strong>₹1.07L/unit</strong> and stabilised fixed costs of ~₹458 Crores annually (₹38.2 Cr/month), the Avenger requires <strong>4,283 units/month</strong> to cover all fixed overheads. This is the minimum viable domestic volume before the business becomes self-sustaining.</p>
+        <div class="divider"></div>
+        <div style="background:var(--surface);border-radius:6px;padding:14px;margin-top:4px;">
+          <p style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-dim);">Formula:</p>
+          <p style="font-family:'Space Mono',monospace;font-size:13px;color:var(--green);margin-top:4px;">Break-Even = Fixed Costs ÷ Contribution Margin/Unit</p>
+          <p style="font-family:'Space Mono',monospace;font-size:13px;color:var(--text);margin-top:4px;">= ₹38.2 Cr ÷ ₹1.07L = <strong>4,283 units/month</strong></p>
+        </div>
+      </div>
+      <div class="box" style="margin-bottom:14px;">
+        <h3 class="dim">Fixed Cost Structure (Annual)</h3>
+        <div class="bar-row"><span class="bar-label">Depreciation</span><div class="bar-track"><div class="bar-fill" style="width:55%;background:var(--red);"><span>₹250 Cr</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Dealer Support</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:var(--amber);"><span>₹100 Cr</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">Admin & Mgmt</span><div class="bar-track"><div class="bar-fill" style="width:11%;background:var(--accent);"><span>₹50 Cr</span></div></div></div>
+        <div class="bar-row"><span class="bar-label">R&D Reserve</span><div class="bar-track"><div class="bar-fill" style="width:13%;background:var(--teal);"><span>₹58 Cr</span></div></div></div>
+        <p style="margin-top:10px;font-size:12px;"><strong>Total Fixed:</strong> ₹458 Cr / year · ₹38.2 Cr / month</p>
+      </div>
+      <div class="box teal-border">
+        <h3 class="teal">Project X Break-Even: 1,800 Units/Month</h3>
+        <p>Project X has a lower fixed cost burden (shared factory infrastructure already amortised by Avenger) and a blended margin of ~₹1.6L/unit on the Core variant. Break-even at just <strong>1,800 units/month</strong> — a number achievable within Month 3 of launch given Punch-segment volumes.</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Break-Even Visualisation — Monthly Volume vs. Profitability</h3>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:16px;">
+        <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:190px;">
+          <!-- Grid -->
+          <line x1="60" y1="10" x2="60" y2="170" stroke="#1e2235" stroke-width="1"/>
+          <line x1="60" y1="170" x2="460" y2="170" stroke="#1e2235" stroke-width="1"/>
+          <line x1="60" y1="90" x2="460" y2="90" stroke="#e63946" stroke-width="1" stroke-dasharray="5,3" opacity="0.4"/>
+          <!-- Fixed cost line (horizontal) -->
+          <line x1="60" y1="90" x2="460" y2="90" stroke="#7882a4" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <text x="462" y="93" font-family="Space Mono" font-size="8" fill="#7882a4">Fixed Cost</text>
+          <!-- Revenue line (diagonal from origin) -->
+          <line x1="60" y1="170" x2="380" y2="20" stroke="#a8ff78" stroke-width="2"/>
+          <text x="382" y="18" font-family="Space Mono" font-size="8" fill="#a8ff78">Revenue</text>
+          <!-- Break-even point -->
+          <circle cx="228" cy="90" r="5" fill="#fbbf24"/>
+          <line x1="228" y1="90" x2="228" y2="170" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="228" y="185" font-family="Space Mono" font-size="8" fill="#fbbf24" text-anchor="middle">4,283 units</text>
+          <text x="228" y="80" font-family="Space Mono" font-size="8" fill="#fbbf24" text-anchor="middle">Break-Even</text>
+          <!-- Loss zone shading -->
+          <path d="M60,170 L228,90 L60,90 Z" fill="rgba(230,57,70,0.08)"/>
+          <!-- Profit zone shading -->
+          <path d="M228,90 L380,20 L380,90 Z" fill="rgba(168,255,120,0.07)"/>
+          <!-- Labels -->
+          <text x="100" y="135" font-family="Syne" font-size="9" fill="#e63946" opacity="0.7">LOSS ZONE</text>
+          <text x="290" y="65" font-family="Syne" font-size="9" fill="#a8ff78" opacity="0.8">PROFIT ZONE</text>
+          <!-- Y axis -->
+          <text x="52" y="14" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="end">₹Cr</text>
+          <text x="52" y="94" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="end">₹38.2Cr</text>
+          <!-- X axis -->
+          <text x="150" y="185" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="middle">2,000 units</text>
+          <text x="310" y="185" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="middle">6,000 units</text>
+        </svg>
+      </div>
+      <div class="cols-3">
+        <div class="box"><div class="stat"><span class="stat-num amber" style="font-size:30px;">4,283</span><span class="stat-label">Avenger Break-Even/mo</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num teal" style="font-size:30px;">1,800</span><span class="stat-label">Project X Break-Even/mo</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num green" style="font-size:30px;">Month 14</span><span class="stat-label">Projected Avenger Profitability</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Financial Model · Break-Even Analysis</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 13 · PAYBACK PERIOD -->
+<div class="slide" data-slide="13 / 18">
+  <div class="eyebrow"><span>Financial Intelligence</span> · Payback Period</div>
+  <div class="slide-title">₹700 Crores invested — <em>recovered in 18 months</em> at target volume</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box green-border" style="margin-bottom:14px;">
+        <h3 class="green">Payback Calculation — Base Case</h3>
+        <div style="background:var(--surface);border-radius:6px;padding:16px;margin:10px 0;">
+          <p style="font-family:'Space Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:8px;">Year 2 Monthly Net Cash Flow (Target Volume)</p>
+          <p style="font-family:'Space Mono',monospace;font-size:13px;color:var(--green);">Avenger: 4,000 units × ₹1.07L = ₹42.8 Cr/mo</p>
+          <p style="font-family:'Space Mono',monospace;font-size:13px;color:var(--teal);">Project X: 7,000 units × ₹1.60L = ₹112 Cr/mo</p>
+          <div style="height:1px;background:var(--border);margin:8px 0;"></div>
+          <p style="font-family:'Space Mono',monospace;font-size:14px;color:var(--text);font-weight:700;">Total: ~₹154.8 Cr/mo net contribution</p>
+          <div style="height:1px;background:var(--border);margin:8px 0;"></div>
+          <p style="font-family:'Space Mono',monospace;font-size:12px;color:var(--amber);">Less Fixed Costs: ₹38.2 Cr/mo</p>
+          <p style="font-family:'Space Mono',monospace;font-size:13px;color:var(--green);font-weight:700;">Net Monthly Surplus: ~₹116.6 Cr/mo</p>
+        </div>
+        <div class="divider"></div>
+        <div style="background:var(--surface);border-radius:6px;padding:12px;margin-top:4px;">
+          <p style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:8px;">CUMULATIVE CASH RECOVERY WATERFALL</p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-dim);">Capital deployed (Month 0)</span><span style="color:var(--red);">−₹700 Cr</span></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-dim);">Year 1 EBITDA deficit (absorbed by WC buffer)</span><span style="color:var(--red);">−₹120 Cr</span></div>
+            <div style="height:1px;background:var(--border);"></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-dim);">Effective recovery needed from Month 10+</span><span style="color:var(--amber);">₹820 Cr</span></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-dim);">Net monthly surplus from Month 10 (Year 2 run-rate)</span><span style="color:var(--green);">₹116.6 Cr/mo</span></div>
+            <div style="height:1px;background:var(--border);"></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;"><span style="color:var(--text);">₹820 Cr ÷ ₹116.6 Cr/mo ≈ 7 months from Month 10</span><span style="color:var(--green);">= Month 17–18</span></div>
+          </div>
+          <p style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:8px;">18-month payback is measured from capital deployment (Month 0), fully reconciled accounting for Year 1 deficit absorption and ramp-up lag before surplus generation begins at Month 10.</p>
+        </div>
+      </div>
+      <div class="box amber-border">
+        <h3 class="amber">Year 1 Deficit Adjustment</h3>
+        <p>Year 1 burns −₹120 Cr in EBITDA (launch costs, ramp-up inefficiencies). This is pre-funded in the ₹250 Cr Working Capital Buffer. The net monthly surplus of ₹116.6 Cr/month only activates from Month 10 onwards, when Avenger achieves ~3,000 units/month and Project X has launched. Recovery of the effective ₹820 Cr obligation at ₹116.6 Cr/month takes ~7 months from Month 10 — arriving at <strong>Month 17–18 from capital deployment, Q2 2028.</strong></p>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Cumulative Cash Recovery Timeline</h3>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:14px;">
+        <svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:200px;">
+          <!-- Axes -->
+          <line x1="60" y1="10" x2="60" y2="175" stroke="#1e2235" stroke-width="1"/>
+          <line x1="60" y1="175" x2="445" y2="175" stroke="#1e2235" stroke-width="1"/>
+          <!-- Zero line at y=120 -->
+          <line x1="60" y1="120" x2="445" y2="120" stroke="#e63946" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+          <text x="44" y="123" font-family="Space Mono" font-size="8" fill="#e63946" text-anchor="end">₹0</text>
+          <!-- Investment line (horizontal at -700) -->
+          <line x1="60" y1="175" x2="445" y2="175" stroke="#7882a4" stroke-width="0.5"/>
+          <!-- Y axis labels -->
+          <text x="44" y="14" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="end">+₹700</text>
+          <text x="44" y="70" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="end">+₹400</text>
+          <text x="44" y="178" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="end">−₹700</text>
+          <!-- Cumulative cash curve: starts at -700 (y=175), rises through zero (y=120) at ~month 18, continues up -->
+          <path d="M70,175 C90,174 110,172 130,168 C150,164 165,155 185,148 C200,142 215,133 235,126 C255,119 268,115 285,108 C305,100 325,86 350,70 C375,54 405,35 440,18"
+                stroke="#a8ff78" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Negative area -->
+          <path d="M70,175 C90,174 110,172 130,168 C150,164 165,155 185,148 C200,142 215,133 235,126 C248,121 252,120 255,120 L255,175 L70,175 Z"
+                fill="rgba(230,57,70,0.07)"/>
+          <!-- Positive area -->
+          <path d="M255,120 C268,115 285,108 305,100 C325,86 350,70 385,50 C410,35 430,22 440,18 L440,120 Z"
+                fill="rgba(168,255,120,0.07)"/>
+          <!-- Payback point -->
+          <circle cx="255" cy="120" r="5" fill="#fbbf24"/>
+          <line x1="255" y1="120" x2="255" y2="175" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="255" y="190" font-family="Space Mono" font-size="8" fill="#fbbf24" text-anchor="middle">Month 18</text>
+          <text x="255" y="108" font-family="Space Mono" font-size="8" fill="#fbbf24" text-anchor="middle">PAYBACK</text>
+          <!-- X axis months -->
+          <text x="100" y="193" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="middle">Mo 6</text>
+          <text x="180" y="193" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="middle">Mo 12</text>
+          <text x="350" y="193" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="middle">Mo 24</text>
+          <text x="440" y="193" font-family="Space Mono" font-size="8" fill="#7882a4" text-anchor="middle">Mo 30</text>
+        </svg>
+      </div>
+      <div class="cols-3">
+        <div class="box"><div class="stat"><span class="stat-num amber" style="font-size:28px;">18 mo</span><span class="stat-label">Full Payback Period</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num green" style="font-size:28px;">Q2 2028</span><span class="stat-label">Investment Recovered</span></div></div>
+        <div class="box"><div class="stat"><span class="stat-num teal" style="font-size:28px;">₹116 Cr</span><span class="stat-label">Net Monthly Surplus (Yr2)</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Financial Model · Payback Period</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 14 · SENSITIVITY ANALYSIS -->
+<div class="slide slide-glow-red" data-slide="14 / 18">
+  <div class="eyebrow"><span>Financial Intelligence</span> · Sensitivity Analysis</div>
+  <div class="slide-title">±20% Demand Shock — <em>what happens when the market surprises us</em></div>
+  <div class="cols-3" style="margin-bottom:22px;">
+    <div class="box red-border">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--red);letter-spacing:0.15em;margin-bottom:8px;">PESSIMISTIC · −20%</div>
+      <h3 class="red">3,200 Avenger + 5,600 Project X</h3>
+      <div class="divider"></div>
+      <div class="stat" style="margin:14px 0;"><span class="stat-num red" style="font-size:38px;">₹65 Cr</span><span class="stat-label">Year 2 EBITDA</span></div>
+      <div class="divider"></div>
+      <ul>
+        <li>Avenger domestic volume falls below break-even (4,283 threshold)</li>
+        <li><strong>Trigger:</strong> Mandatory shift of 1,000 units/mo to RHD export markets (South Africa, ASEAN) to absorb fixed factory costs</li>
+        <li>Project X still profitable — covers fixed cost shortfall from Avenger</li>
+        <li>18.8% existing export infrastructure activated immediately</li>
+      </ul>
+      <div class="divider"></div>
+      <p style="font-size:12px;color:var(--red);">⚠ Payback extends to ~28 months. Still recovers.</p>
+    </div>
+    <div class="box green-border">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--green);letter-spacing:0.15em;margin-bottom:8px;">TARGET · BASE CASE</div>
+      <h3 class="green">4,000 Avenger + 7,000 Project X</h3>
+      <div class="divider"></div>
+      <div class="stat" style="margin:14px 0;"><span class="stat-num green" style="font-size:38px;">₹285 Cr</span><span class="stat-label">Year 2 EBITDA</span></div>
+      <div class="divider"></div>
+      <ul>
+        <li>Avenger comfortably above break-even at ~4,283 threshold</li>
+        <li>Healthy dealer throughput — 100 premium hubs performing</li>
+        <li>Project X at 7,000/mo capturing 50%+ of sub-₹10L micro-SUV share</li>
+        <li>Combined 11,000 units/month — Stellantis becomes Top 5 SUV brand</li>
+      </ul>
+      <div class="divider"></div>
+      <p style="font-size:12px;color:var(--green);">✅ Payback at 18 months. Full health.</p>
+    </div>
+    <div class="box accent-border">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.15em;margin-bottom:8px;">OPTIMISTIC · +20%</div>
+      <h3 style="color:var(--accent);">4,800 Avenger + 8,400 Project X</h3>
+      <div class="divider"></div>
+      <div class="stat" style="margin:14px 0;"><span class="stat-num" style="font-size:38px;color:var(--accent);">₹415 Cr</span><span class="stat-label">Year 2 EBITDA</span></div>
+      <div class="divider"></div>
+      <ul>
+        <li>Rapid payback — investment fully recovered by Month 14</li>
+        <li><strong>Trigger:</strong> Authorize Phase 2 CapEx for hybrid powertrain development (₹180 Cr reserved)</li>
+        <li>Avenger capacity expansion — Thiruvallur shifts to double-shift production</li>
+        <li>Dealer network expansion to 150 Jeep premium hubs authorized</li>
+      </ul>
+      <div class="divider"></div>
+      <p style="font-size:12px;color:var(--accent);">🚀 Payback at 14 months. Phase 2 unlocked.</p>
+    </div>
+  </div>
+  <div class="cols-2">
+    <div class="box">
+      <h3 class="dim">Why the Pessimistic Case is Still Safe</h3>
+      <p>Even at −20% demand, the combined portfolio does not collapse. Project X's 5,600 units/month generates sufficient contribution margin to subsidise the Avenger's shortfall. The ₹250 Cr Working Capital Buffer provides 12-month runway even at pessimistic volume. And Stellantis's existing export infrastructure (18.8% growth) provides a ready pressure valve for unsold domestic inventory.</p>
+    </div>
+    <div class="box amber-border">
+      <h3 class="amber">Competitive Retaliation — Response Criteria & Triggers</h3>
+      <table class="data-table" style="margin-bottom:12px;">
+        <thead><tr><th>Competitor Move</th><th>Default Response</th><th style="min-width:200px;">Authorised Response Trigger</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">Tata/Hyundai price war · ₹50K drop</td><td>Hold. Pivot to NVH &amp; ride quality. Never discount list price.</td><td class="warn">Only if Avenger falls below 3,000 units/mo for 2 consecutive months: authorise ₹25K dealer-level exchange bonus (not a list cut).</td></tr>
+          <tr><td class="hi">Mahindra ADAS in lower XUV 3XO at &lt;₹12L</td><td>Emphasise Jeep global badge &amp; boxy stance vs. local utility.</td><td class="warn">If ADAS rival sustained at &lt;₹12L: fast-track ADAS-ready Top variant feature pack to Core in Year 2 refresh.</td></tr>
+          <tr><td class="hi">Kylaq volume edition at ₹8.5L</td><td>No response. Kylaq at ₹8.5L is a different segment floor.</td><td class="warn">Protect ₹9.29L entry price absolutely — any drop collapses the "First Jeep Under ₹10L" marketing headline. Non-negotiable.</td></tr>
+          <tr><td class="hi fail">CRITICAL: Avenger &lt;2,500 units/mo for 3+ months</td><td class="fail">Board convenes.</td><td class="fail">Options in order: (a) ₹50K launch-edition pricing, (b) accelerate Project X to Month 7, (c) activate RHD export to South Africa/ASEAN. CFO + MD approval required. This is the commercial response zone — not management discretion.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <p><strong>The Rule:</strong> "Hold the line" is default. Commercial response is only authorised when Avenger volume falls below <strong>2,500 units/month for 3 consecutive months</strong> — the threshold at which fixed cost absorption becomes unsustainable without export relief. This criterion is a board gate, not a management judgment call.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Financial Model · Sensitivity Analysis ±20%</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 15 · 9-MONTH SOP -->
+<div class="slide" data-slide="15 / 18">
+  <div class="eyebrow"><span>Operational Execution</span> · 9-Month SOP</div>
+  <div class="slide-title">The execution layer — <em>month-by-month</em> from design freeze to national SOP</div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px;">
+        <div class="sop-row" style="background:rgba(230,57,70,0.08);border-top:3px solid var(--red);">
+          <div class="sop-phase">Months<br>1–3</div>
+          <div class="sop-content">
+            <div class="sop-title">Manufacturing & Sourcing Lock</div>
+            <div class="sop-detail">Freeze design specs across all three variants. Re-tool Thiruvallur Body-in-White (BIW) welding jigs to Avenger dimensions (₹120 Cr CapEx committed). Lock interior supplier contracts — 3-month tooling lead time for bespoke Jeep-specific injection molds and acoustic glass panels. Tier-1 supplier LOIs signed. Citroën C3X production schedule adjusted to create factory capacity.</div>
+          </div>
+        </div>
+        <div class="sop-row" style="background:rgba(251,191,36,0.05);">
+          <div class="sop-phase" style="color:var(--amber);">Months<br>4–6</div>
+          <div class="sop-content">
+            <div class="sop-title">Homologation, Validation & Road Tuning</div>
+            <div class="sop-detail">Build 50 physical prototypes. Submit to ARAI for physical crash testing (BNCAP 5★ target — mandatory marketing pillar against Tata). Emission certification: BS6 Phase 2 RDE + E20 compliance. Extensive Indian road tuning — suspension calibration for pothole severity, HVAC testing for 48°C peak summer, NVH validation at -4dB target vs. Exter benchmark. ISOFIX and ESC validation runs.</div>
+          </div>
+        </div>
+        <div class="sop-row" style="background:rgba(168,255,120,0.04);">
+          <div class="sop-phase" style="color:var(--green);">Months<br>7–8</div>
+          <div class="sop-content">
+            <div class="sop-title">Supplier Ramp & Pilot Retail</div>
+            <div class="sop-detail">All Tier-1 suppliers ramp to 100% production capability. Launch "Volume Lounge" dealer concept in 5 pilot cities (Bengaluru, Mumbai, Delhi, Chennai, Hyderabad) — stress-test high-footfall logistics. Dealer training completed. Pre-bookings open online. ₹200 Cr marketing blitz begins: influencer drives, NVH comparison videos, "First Jeep Under ₹10L" media campaign seeded.</div>
+          </div>
+        </div>
+        <div class="sop-row" style="background:rgba(45,212,191,0.04);border-bottom:none;">
+          <div class="sop-phase" style="color:var(--teal);">Month<br>9</div>
+          <div class="sop-content">
+            <div class="sop-title">National SOP: Full Production & Dispatch</div>
+            <div class="sop-detail">Full factory production run commences. Dealer dispatch across 100 Jeep premium hubs. National launch event. ₹200 Cr marketing activation in full force. Target: 1,500 units in Month 9, scaling to 3,000 by Month 12 and 4,000+ by Month 18 as the 9-month break-even trajectory executes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="box amber-border" style="margin-bottom:14px;">
+        <h3 class="amber">Critical Path: The 3 Things That Cannot Slip</h3>
+        <ol style="padding-left:18px;">
+          <li style="margin-bottom:10px;font-size:14px;color:var(--text-mid);"><strong style="color:var(--text);">BNCAP 5★ Certification</strong> — Must be in hand before launch. This is the anti-Tata weapon. If the Avenger doesn't achieve 5★, the primary safety narrative fails. Non-negotiable.</li>
+          <li style="margin-bottom:10px;font-size:14px;color:var(--text-mid);"><strong style="color:var(--text);">Soft-Touch Interior Materials</strong> — The Avenger's entire value proposition rests on feeling premium at ₹10L. A single hard-plastic dashboard panel leaked to a reviewer kills the narrative. Quality control at tooling stage is mandatory.</li>
+          <li style="font-size:14px;color:var(--text-mid);"><strong style="color:var(--text);">Pricing Discipline at Entry</strong> — The ₹9.29L entry price must hold. Any ex-showroom price above ₹9.5L at launch collapses the "First Jeep Under ₹10L" headline. Board must approve a pricing lock, not subject to last-minute cost overruns.</li>
+        </ol>
+      </div>
+      <div class="box teal-border" style="margin-bottom:14px;">
+        <h3 class="teal">Dealer Resistance: The "Volume Lounge" Solution</h3>
+        <p>Premium Jeep dealers may revolt against high-footfall, lower-margin Avenger buyers crowding their showrooms. Mitigation: Stellantis subsidises physical showroom partitions separating the "Avenger Zone" from the premium product display. In Phase 2, high-performing dealers authorised to open separate <strong>"Jeep Lifestyle" annexes</strong> exclusively for mass-market throughput. Dealer margins on Avenger Core variant set at 4.5% — above industry average for the segment.</p>
+      </div>
+      <div class="box amber-border" style="margin-bottom:14px;">
+        <h3 class="amber">Dealer Network Gap: Acknowledged & Costed</h3>
+        <p style="margin-bottom:8px;">Jeep India currently operates approximately <strong>65–70 dealer outlets</strong>, concentrated in Tier-1 cities. Reaching 100 Jeep premium hubs by Month 9 SOP requires recruitment of 30–35 incremental outlets. This is a real gap that must be funded.</p>
+        <div style="background:var(--surface);border-radius:6px;padding:12px;margin-top:8px;">
+          <p style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-dim);margin-bottom:6px;">DEALER NETWORK COST ESTIMATE</p>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-mid);">New outlet capex (Stellantis contribution, per hub)</span><span style="color:var(--amber);">₹1.5–2 Cr</span></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-mid);">35 incremental outlets × ₹1.75 Cr avg</span><span style="color:var(--amber);">~₹61 Cr</span></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;"><span style="color:var(--text-mid);">Dealer training + pilot inventory float</span><span style="color:var(--amber);">~₹14 Cr</span></div>
+            <div style="height:1px;background:var(--border);margin:4px 0;"></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;"><span style="color:var(--text);">Total dealer network expansion cost</span><span style="color:var(--green);">~₹75 Cr</span></div>
+          </div>
+          <p style="font-size:12px;color:var(--text-dim);margin-top:8px;">This ₹75 Cr is absorbed within the ₹200 Cr Launch OpEx envelope. Option B: authorise high-performing Citroën dealers in Tier-2 markets to dual-stock the Avenger under separated "Avenger Zone" branding — leveraging Citroën's existing 250-outlet infrastructure without new dealer recruitment capex. Decision required by Month 2.</p>
+        </div>
+      </div>
+      <div class="box red-border">
+        <h3 class="red">Brand Dilution Risk & Mitigation</h3>
+        <p>Introducing a sub-₹10L Jeep risks damaging the ₹90L Grand Cherokee equity. <strong>Mitigation:</strong> Eliminate the naturally aspirated, bare-bones variant. The Entry model retains the Turbo engine and premium exterior styling. It must feel like a Jeep, not a budget car. Entirely unique interior injection molds — the cabin shares no visible components with the Citroën C3.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Operational Execution · 9-Month SOP</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 16 · FINANCIAL INTELLIGENCE SUMMARY -->
+<div class="slide slide-glow-green" data-slide="16 / 18">
+  <div class="eyebrow"><span>Financial Intelligence</span> · Consultant-Level Insight</div>
+  <div class="slide-title">The financial logic in one slide — <em>every number, one verdict</em></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-bottom:22px;">
+    <div class="box" style="text-align:center;border-top:3px solid var(--red);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:10px;">CAPITAL ASK</div>
+      <span class="stat-num amber" style="font-size:36px;">₹700 Cr</span>
+      <div class="divider"></div>
+      <p style="font-size:12px;">₹250 CapEx · ₹200 OpEx · ₹250 WC</p>
+    </div>
+    <div class="box" style="text-align:center;border-top:3px solid var(--amber);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:10px;">BREAK-EVEN</div>
+      <span class="stat-num amber" style="font-size:36px;">4,283</span>
+      <div class="divider"></div>
+      <p style="font-size:12px;">Avenger units/month · Month 14 target</p>
+    </div>
+    <div class="box" style="text-align:center;border-top:3px solid var(--green);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:10px;">PAYBACK</div>
+      <span class="stat-num green" style="font-size:36px;">18 mo</span>
+      <div class="divider"></div>
+      <p style="font-size:12px;">From capital deployment · Q2 2028</p>
+    </div>
+    <div class="box" style="text-align:center;border-top:3px solid var(--teal);">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:10px;">YEAR 3 EBITDA</div>
+      <span class="stat-num teal" style="font-size:36px;">₹340 Cr</span>
+      <div class="divider"></div>
+      <p style="font-size:12px;">22% EBITDA margin · 12,500 units/mo</p>
+    </div>
+  </div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Consolidated 3-Year Financial Summary</h3>
+      <table class="data-table" style="margin-bottom:14px;">
+        <thead><tr><th>KPI</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">Total Units/mo</td><td class="warn">~4,500 avg</td><td class="ok">11,000</td><td class="ok">12,500</td></tr>
+          <tr><td class="hi">Avenger Units/mo</td><td class="warn">Ramp 1.5K→3K</td><td class="ok">4,000</td><td class="ok">4,500</td></tr>
+          <tr><td class="hi">Project X Units/mo</td><td class="warn">Launch → 3K</td><td class="ok">7,000</td><td class="ok">8,000</td></tr>
+          <tr><td class="hi">Annual Revenue</td><td class="warn">₹640 Cr</td><td class="ok">₹1,540 Cr</td><td class="ok">₹2,010 Cr</td></tr>
+          <tr><td class="hi">EBITDA</td><td class="fail">−₹120 Cr</td><td class="ok">₹285 Cr</td><td class="ok">₹340 Cr</td></tr>
+          <tr><td class="hi">EBITDA Margin</td><td class="fail">Negative</td><td class="ok">18.5%</td><td class="ok">22%</td></tr>
+          <tr><td class="hi">Market Position</td><td class="warn">Entry / Ramp</td><td class="ok">Top 5 SUV Brand</td><td class="ok">Dominant</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <p><strong>Key insight:</strong> The combined portfolio (₹1,540 Cr Year 2 revenue) is more than <strong>4x Stellantis India's current domestic revenue base</strong> — achieved without building a single new factory, developing a new engine, or entering a market segment where we don't already have the tools.</p>
+      </div>
+    </div>
+    <div>
+      <div class="box green-border" style="margin-bottom:14px;">
+        <h3 class="green">The Asset Sweating Argument — Final Form</h3>
+        <ul>
+          <li>₹2,000 Cr already invested in India manufacturing — currently generating sub-1,000 units/month domestic return</li>
+          <li>₹700 Cr additional unlocks 12,500 units/month by Year 3 — a 12.5× volume multiplier on existing infrastructure</li>
+          <li>CMP platform cost savings: 60–65% vs. new platform → eliminates ₹400+ Cr in development spend</li>
+          <li>PureTech 110 already localised: ₹0 new engine development cost</li>
+          <li>Shared service infrastructure: Citroën's 250-outlet network doubles as Avenger service → <strong>service anxiety eliminated without ₹1 of new dealer capex</strong></li>
+        </ul>
+      </div>
+      <div class="verdict">
+        <div class="v-label">Consultant's Final Financial Verdict</div>
+        <div class="v-text">"This is not a ₹700 Crore spend. It is a ₹700 Crore key that unlocks a ₹2,000 Crore asset that is currently sitting idle."</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Financial Intelligence · Consolidated Summary</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 17 · RISK MATRIX -->
+<div class="slide" data-slide="17 / 18">
+  <div class="eyebrow"><span>Risk Assessment</span> · Comprehensive Matrix</div>
+  <div class="slide-title">The three systemic risks — <em>identified, quantified, mitigated</em></div>
+  <div class="cols-2" style="flex:1;">
+    <div>
+      <div class="box red-border" style="margin-bottom:14px;">
+        <h3 class="red">Risk 1: Brand Dilution (High)</h3>
+        <p>A sub-₹10L Jeep may damage the Grand Cherokee and Wrangler's ₹90L+ equity. If buyers perceive Jeep as a "budget brand," premium sales collapse entirely.</p>
+        <div class="divider"></div>
+        <p><strong>Mitigation:</strong> Zero NA variants. Entry model retains Turbo engine + premium exterior. Entirely unique interior injection molds — no shared visible components with C3. "Volume Lounge" separate from premium showroom area. The Avenger must feel like a Jeep, not a Citroën with a badge swap.</p>
+      </div>
+      <div class="box amber-border" style="margin-bottom:14px;">
+        <h3 class="amber">Risk 2: Platform Perception Leakage (Medium)</h3>
+        <p>Auto media and Team-BHP will discover the shared CMP architecture within weeks of launch. If the narrative becomes "rebadged Citroën," the premium pricing collapses.</p>
+        <div class="divider"></div>
+        <p><strong>Mitigation:</strong> Bespoke acoustic glass, unique NVH package (-4dB minimum vs. C3), entirely different door-shut sound (tested to sound "vault-like"). Proactively brief auto journalists on the engineering differentiation before launch. Frame it as "same platform philosophy as Peugeot, Opel, DS — all of which also use CMP and are considered premium."</p>
+      </div>
+      <div class="box teal-border">
+        <h3 class="teal">Risk 3: Dealer Resistance (Critical)</h3>
+        <p>Premium Jeep dealers revolt against high-footfall Avenger traffic eroding the Grand Cherokee showroom atmosphere and their per-vehicle margins.</p>
+        <div class="divider"></div>
+        <p><strong>Mitigation:</strong> Subsidised showroom partition ("Volume Lounge"). Avenger dealer margin set at 4.5% — above segment average. Phase 2: high-performers authorised to open dedicated Jeep Lifestyle annexes. Separate sales teams trained for each product tier.</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="dim" style="margin-bottom:12px;">Risk Probability & Impact Matrix</h3>
+      <table class="data-table" style="margin-bottom:16px;">
+        <thead><tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Severity</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">Brand Dilution</td><td class="warn">Medium</td><td class="fail">High</td><td class="fail">HIGH</td><td class="ok">Mitigated</td></tr>
+          <tr><td class="hi">Platform Leakage</td><td class="ok">Low-Medium</td><td class="warn">Medium</td><td class="warn">MEDIUM</td><td class="ok">Mitigated</td></tr>
+          <tr><td class="hi">Dealer Resistance</td><td class="fail">High</td><td class="warn">Medium</td><td class="fail">CRITICAL</td><td class="ok">Active Plan</td></tr>
+          <tr><td class="hi">BNCAP Failure</td><td class="ok">Low</td><td class="fail">Very High</td><td class="warn">MEDIUM</td><td class="ok">Non-Negotiable</td></tr>
+          <tr><td class="hi">Supply Chain Delay</td><td class="warn">Medium</td><td class="warn">Medium</td><td class="warn">MEDIUM</td><td class="ok">WC Buffer</td></tr>
+          <tr><td class="hi">Renault Early Entry</td><td class="ok">Low</td><td class="warn">Medium</td><td class="warn">LOW-MED</td><td class="ok">First-Mover Lock</td></tr>
+        </tbody>
+      </table>
+      <div class="box">
+        <h3 class="dim">BNCAP Failure — The Non-Negotiable</h3>
+        <p>If the Avenger achieves less than 5★ on Bharat NCAP, the entire safety narrative — the primary counter to Tata Nexon's dominance — fails. The CMP platform floorpan will receive <strong>localised ultra-high-strength steel (UHSS) reinforcements</strong> specifically for Indian crash configurations. 6 airbags, ESC, and ISOFIX are standard on all variants with no exceptions. The BNCAP submission budget is ring-fenced at ₹50 Cr — non-negotiable.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-brand">Gowtham M · <span>Strategic Consultant</span></div>
+    <div class="footer-brand">Risk Assessment · Comprehensive Matrix</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ SLIDE 18 · VERDICT -->
+<div class="slide" data-slide="18 / 18" style="justify-content:center;background:linear-gradient(135deg,#04050a 60%,#0d0310 100%);">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 20%, rgba(230,57,70,0.1) 0%, transparent 55%),radial-gradient(ellipse at 20% 80%, rgba(168,255,120,0.06) 0%, transparent 50%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;max-width:940px;margin:0 auto;text-align:center;">
+    <div class="eyebrow" style="text-align:center;margin-bottom:18px;"><span>Final</span> Verdict</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:50px;color:var(--text);line-height:1.15;margin-bottom:24px;">The Verdict</h2>
+    <div style="height:2px;width:80px;background:var(--red);margin:0 auto 28px;"></div>
+    <div style="text-align:left;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:28px;">
+      <div class="box red-border">
+        <h3 class="red">The Disease</h3>
+        <p>Citroën cheapened a globally innovative brand for a market that rewards aspiration. Jeep over-engineered capability India doesn't use, priced it beyond reason, and confused luxury buyers and mass buyers in the same room.</p>
+      </div>
+      <div class="box amber-border">
+        <h3 class="amber">The Surgery</h3>
+        <p>Kill the C5. Export the Basalt. Launch the Avenger with a Turbo and a vault-like cabin at ₹9.3L. Follow 9 months later with Project X — the Grande Panda–derived comfort king at ₹6.5L. Two brands. Two segments. Zero overlap.</p>
+      </div>
+      <div class="box green-border">
+        <h3 class="green">The Outcome</h3>
+        <p>₹700 Cr invested. ₹285 Cr EBITDA by Year 2. 11,000 units/month. Investment recovered by Month 18. The ₹2,000 Cr manufacturing asset stops being a liability and becomes the engine it was built to be.</p>
+      </div>
+    </div>
+    <div class="verdict" style="margin-bottom:28px;">
+      <div class="v-label">Closing Statement</div>
+      <div class="v-text">"Win India with two brands, two segments, and zero overlap. The real Citroën — built for comfort, priced for volume. The affordable Jeep — built for aspiration, priced for scale. Do it in the right order. Do it before 2027."</div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:40px;align-items:center;">
+      <div style="text-align:left;">
+        <div style="font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);">Gowtham M</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:0.1em;margin-top:4px;">MBA IN AI & DATA SCIENCE · RV UNIVERSITY</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--red);letter-spacing:0.1em;margin-top:2px;">STRATEGIC CONSULTANT · RV UNIVERSITY</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
